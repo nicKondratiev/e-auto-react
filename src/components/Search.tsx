@@ -1,36 +1,43 @@
-import UseToggle from "../hooks/UseToggle";
 import { MouseEventHandler } from "react";
+
+//custom hook
+import UseToggle from "../hooks/UseToggle";
+
+// json file
 import carsData from "../db.json";
 
-const Search = () => {
-  const [manufacturer, toggleManufacturer] = UseToggle(false);
+// reusable component
+import Filter from "./Filter";
 
-  const handleClick: MouseEventHandler<HTMLDivElement> = () => {
-    toggleManufacturer();
+const Search = () => {
+  const [toggleManu, setToggleManu] = UseToggle(false);
+  const [toggleModels, setToggleModels] = UseToggle(false);
+
+  const handleManu: MouseEventHandler<HTMLDivElement> = () => {
+    setToggleManu();
   };
 
-  carsData.map((car) => console.log(car.brand));
+  const handleModels: MouseEventHandler<HTMLDivElement> = () => {
+    setToggleModels();
+  };
+
+  // we iterate over carsData and return only car manufacturers/brands
+  const manufacturers = carsData.map((car) => car.brand);
 
   return (
-    <div className="text-2xl text-white">
-      <div
-        onClick={handleClick}
-        className="w-fit cursor-pointer rounded-xl bg-orange-700 px-3 py-2"
-      >
-        <h1>Manufacturer</h1>
-      </div>
-
-      <div
-        className={`${
-          manufacturer ? "relative" : "hidden"
-        } h-[350px] w-[350px] overflow-scroll rounded-xl bg-white`}
-      >
-        {carsData.map((car, id) => (
-          <div className="text-black" key={id}>
-            <p>{car.brand}</p>
-          </div>
-        ))}
-      </div>
+    <div>
+      <Filter
+        header="Manufacturer"
+        handleClick={handleManu}
+        toggle={toggleManu}
+        data={manufacturers}
+      />
+      <Filter
+        header="Models"
+        handleClick={handleModels}
+        toggle={toggleModels}
+        data={manufacturers}
+      />
     </div>
   );
 };
