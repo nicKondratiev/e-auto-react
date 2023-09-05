@@ -5,15 +5,22 @@ type FilterProps = {
   handleClick: MouseEventHandler<HTMLDivElement>;
   toggle: boolean;
   data: string[];
+  setItem: React.Dispatch<React.SetStateAction<string>>;
 };
 
 // filter component renders based on received props
-const Filter = ({ header, handleClick, toggle, data }: FilterProps) => {
+const Filter = ({
+  header,
+  handleClick,
+  toggle,
+  data,
+  setItem,
+}: FilterProps) => {
   return (
     <div className="text-2xl text-white">
       <div
         onClick={handleClick}
-        className="w-fit cursor-pointer rounded-xl bg-orange-700 px-3 py-2"
+        className="flex w-[160px] cursor-pointer items-center justify-center rounded-xl bg-orange-700 px-3 py-2"
       >
         <h1>{header}</h1>
       </div>
@@ -24,8 +31,8 @@ const Filter = ({ header, handleClick, toggle, data }: FilterProps) => {
           toggle ? "relative" : "hidden"
         } h-[350px] w-[350px] overflow-scroll rounded-xl bg-white`}
       >
-        {data.map((item, id) => (
-          <div className="text-black" key={id}>
+        {data?.map((item, id) => (
+          <div onClick={() => setItem(item)} className="text-black" key={id}>
             <p>{item}</p>
           </div>
         ))}

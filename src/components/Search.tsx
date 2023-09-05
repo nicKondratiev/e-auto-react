@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useState } from "react";
 
 //custom hook
 import UseToggle from "../hooks/UseToggle";
@@ -10,9 +10,17 @@ import carsData from "../db.json";
 import Filter from "./Filter";
 
 const Search = () => {
+  // togglers
   const [toggleManu, setToggleManu] = UseToggle(false);
   const [toggleModels, setToggleModels] = UseToggle(false);
 
+  // setters
+  const [manu, setManu] = useState<string>("");
+  const [model, setModel] = useState<string>("");
+  console.log(manu);
+  console.log(model);
+
+  // toggle handlers
   const handleManu: MouseEventHandler<HTMLDivElement> = () => {
     setToggleManu();
   };
@@ -23,6 +31,10 @@ const Search = () => {
 
   // we iterate over carsData and return only car manufacturers/brands
   const manufacturers = carsData.map((car) => car.brand);
+  const selectedManu = carsData.filter((car) => car.brand === manu);
+  const models = selectedManu[0]?.models;
+
+  console.log(models);
 
   return (
     <div>
@@ -31,12 +43,14 @@ const Search = () => {
         handleClick={handleManu}
         toggle={toggleManu}
         data={manufacturers}
+        setItem={setManu}
       />
       <Filter
         header="Models"
         handleClick={handleModels}
         toggle={toggleModels}
-        data={manufacturers}
+        data={models}
+        setItem={setModel}
       />
     </div>
   );
