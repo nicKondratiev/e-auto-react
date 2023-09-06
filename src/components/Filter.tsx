@@ -4,18 +4,11 @@ type FilterProps = {
   header: string;
   handleClick: MouseEventHandler<HTMLDivElement>;
   toggle: boolean;
-  data: string[];
-  setItem: React.Dispatch<React.SetStateAction<string>>;
+  Child: React.ReactNode;
 };
 
 // filter component renders based on received props
-const Filter = ({
-  header,
-  handleClick,
-  toggle,
-  data,
-  setItem,
-}: FilterProps) => {
+const Filter = ({ header, handleClick, toggle, Child }: FilterProps) => {
   return (
     <div className="text-2xl text-white">
       <div
@@ -31,11 +24,7 @@ const Filter = ({
           toggle ? "relative" : "hidden"
         } h-[350px] w-[350px] overflow-scroll rounded-xl bg-white`}
       >
-        {data?.map((item, id) => (
-          <div onClick={() => setItem(item)} className="text-black" key={id}>
-            <p>{item}</p>
-          </div>
-        ))}
+        {Child}
       </div>
     </div>
   );

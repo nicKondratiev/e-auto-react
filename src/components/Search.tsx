@@ -8,6 +8,7 @@ import carsData from "../db.json";
 
 // reusable component
 import Filter from "./Filter";
+import Child from "./Child";
 
 const Search = () => {
   // togglers
@@ -42,15 +43,18 @@ const Search = () => {
         header="Manufacturer"
         handleClick={handleManu}
         toggle={toggleManu}
-        data={manufacturers}
-        setItem={setManu}
+        Child={<Child data={manufacturers} setItem={setManu} />}
+        // data={manufacturers}
+        // setItem={setManu}
       />
+
       <Filter
         header="Models"
         handleClick={handleModels}
         toggle={toggleModels}
-        data={models}
-        setItem={setModel}
+        Child={<Child data={models} setItem={setModel} />}
+        // data={models}
+        // setItem={setModel}
       />
     </div>
   );
