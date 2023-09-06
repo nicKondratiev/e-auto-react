@@ -2,7 +2,7 @@ import Search from "./components/Search";
 
 function App() {
   return (
-    <div className="h-screen bg-gray-700">
+    <div className="flex h-screen justify-center bg-gray-700">
       <Search />
     </div>
   );

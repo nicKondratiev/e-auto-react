@@ -21,8 +21,8 @@ const Filter = ({ header, handleClick, toggle, Child }: FilterProps) => {
       <div
         className={`${
           // dropdown opens in case toggle is truthy
-          toggle ? "relative" : "hidden"
-        } h-[350px] w-[350px] overflow-scroll rounded-xl bg-white`}
+          toggle ? "absolute" : "hidden"
+        }  h-[350px] w-[350px] overflow-scroll rounded-xl bg-white`}
       >
         {Child}
       </div>
