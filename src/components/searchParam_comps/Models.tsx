@@ -1,10 +1,14 @@
+// reusables
+import Child from "./Child";
 import DropDown from "./DropDown";
-import carsData from "../../carsData.json";
 
+// custom hook
 import UseToggle from "../../hooks/UseToggle";
 
-import Child from "./Child";
+// json data
+import carsData from "../../json/carsData.json";
 
+// useStore from zustand
 import useStore from "../../store";
 
 const Models = () => {

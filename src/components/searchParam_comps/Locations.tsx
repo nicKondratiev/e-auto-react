@@ -1,11 +1,14 @@
+// reusables
 import Child from "./Child";
-
-import locationData from "../../locations.json";
-
-import UseToggle from "../../hooks/UseToggle";
 import DropDown from "./DropDown";
 
-//////////
+// custom hook
+import UseToggle from "../../hooks/UseToggle";
+
+// json data
+import locationData from "../../json/locations.json";
+
+// useStore from zustand
 import useStore from "../../store";
 
 const Locations = () => {
@@ -15,16 +18,12 @@ const Locations = () => {
 
   const locations = locationData.georgia;
 
-  // console.log(location);
-  console.log(store.searchParams);
-
   return (
     <DropDown
       header="Location"
       toggleClick={setToggleLocations}
       toggle={toggleLocations}
       Child={<Child data={locations} setItem={store.addLocation} />}
-      // Child={<Child data={locations} setItem={setLocation} />}
     />
   );
 };
