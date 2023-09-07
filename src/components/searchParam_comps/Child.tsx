@@ -1,6 +1,7 @@
 type ChildProps = {
   data: string[];
-  setItem: React.Dispatch<React.SetStateAction<string>>;
+  // setItem: React.Dispatch<React.SetStateAction<string>>
+  setItem: (manu: string) => void;
 };
 
 // Child.tsx receives data and setter function of different components like (manufacturer, models and etc)

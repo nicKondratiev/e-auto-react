@@ -1,18 +1,18 @@
-import { MouseEventHandler } from "react";
+import React from "react";
 
-type FilterProps = {
+type DropDownProps = {
   header: string;
-  handleClick: MouseEventHandler<HTMLDivElement>;
+  toggleClick: React.MouseEventHandler<HTMLDivElement>;
   toggle: boolean;
   Child: React.ReactNode;
 };
 
 // filter component renders based on received props
-const Filter = ({ header, handleClick, toggle, Child }: FilterProps) => {
+const DropDown = ({ header, toggleClick, toggle, Child }: DropDownProps) => {
   return (
     <div className="text-2xl text-white">
       <div
-        onClick={handleClick}
+        onClick={toggleClick}
         className="flex w-[160px] cursor-pointer items-center justify-center rounded-xl bg-orange-700 px-3 py-2"
       >
         <h1>{header}</h1>
@@ -30,4 +30,4 @@ const Filter = ({ header, handleClick, toggle, Child }: FilterProps) => {
   );
 };
 
-export default Filter;
+export default DropDown;
