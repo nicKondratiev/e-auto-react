@@ -10,7 +10,7 @@ type DropDownProps = {
 // filter component renders based on received props
 const DropDown = ({ header, toggleClick, toggle, Child }: DropDownProps) => {
   return (
-    <div className="text-2xl text-white">
+    <div className="flex justify-center text-2xl text-white">
       <div
         onClick={toggleClick}
         className="flex w-[160px] cursor-pointer items-center justify-center rounded-xl bg-orange-700 px-3 py-2"
