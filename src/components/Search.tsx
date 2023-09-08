@@ -5,6 +5,7 @@ import Models from "./searchParam_comps/Models";
 
 // useStore from zustand
 import useStore from "../store";
+import Button from "./searchParam_comps/Button";
 
 const Search = () => {
   const store = useStore();
@@ -16,9 +17,7 @@ const Search = () => {
         <Manufacturers />
         <Models />
         <Locations />
-        <button className="col-start-4 row-start-3 w-2/3 rounded bg-orange-500 p-1">
-          Search
-        </button>
+        <Button />
       </div>
     </div>
   );

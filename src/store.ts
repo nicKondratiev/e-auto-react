@@ -24,6 +24,7 @@ const useStore = create<Store>((set) => ({
       searchParams: {
         ...state.searchParams,
         manu: manu,
+        model: "",
       },
     })),
 
