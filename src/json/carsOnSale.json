@@ -1,17 +1,19 @@
-[
-  {
-    "manufacturer": "Bmw",
-    "model": "M3",
-    "location": "Tbilisi"
-  },
-  {
-    "manufacturer": "Bmw",
-    "model": "M4",
-    "location": "Rustavi"
-  },
-  {
-    "manufacturer": "Bmw",
-    "model": "M5",
-    "location": "Gori"
-  }
-]
+{
+  "carsOnSale": [
+    {
+      "manufacturer": "Bmw",
+      "model": "M3",
+      "location": "Tbilisi"
+    },
+    {
+      "manufacturer": "Bmw",
+      "model": "M4",
+      "location": "Rustavi"
+    },
+    {
+      "manufacturer": "Bmw",
+      "model": "M5",
+      "location": "Gori"
+    }
+  ]
+}
