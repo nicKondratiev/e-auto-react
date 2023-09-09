@@ -1,6 +1,6 @@
 // reusables
-import Child from "./Child";
-import DropDown from "./DropDown";
+import Child from "../Child";
+import DropDown from "../DropDown";
 
 // custom hook
 import UseToggle from "../../hooks/UseToggle";

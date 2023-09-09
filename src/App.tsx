@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Search from "./components/Search";
+import CarDetails from "./components/CarDetails";
 
 function App() {
   return (
@@ -7,7 +8,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Search />} />
         <Route path="/iyideba-manqanebi" element={<div>All Cars</div>} />
-        <Route path={`/iyideba-manqanebi/:manu/:model/:location`} />
+        <Route
+          path={`/iyideba-manqanebi/:manu/:model?/:location?`}
+          element={<CarDetails />}
+        />
       </Routes>
     </div>
   );

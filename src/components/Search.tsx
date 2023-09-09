@@ -5,7 +5,7 @@ import Models from "./searchParam_comps/Models";
 
 // useStore from zustand
 import useStore from "../store";
-import Button from "./searchParam_comps/Button";
+import Button from "./Button";
 
 const Search = () => {
   const store = useStore();
