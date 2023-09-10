@@ -1,42 +1,33 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
 
 type CarData = {
   manufacturer: string;
   model: string;
   location: string;
   img: string;
-}[];
+};
 
 const CarDetails = () => {
-  const [carsData, setCarsData] = useState<CarData | undefined>();
   // we recieve this dynamic params from URL
   const { manu, model, location } = useParams();
 
   // we create this obj to iterate over it in buildQueryParams func
-  const queryParams: Record<string, string | undefined> = {
-    manufacturer: manu,
-    model: model,
-    location: location,
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const apiUrl = `http://localhost:4000/carsOnSale?${buildQueryParams(
-          queryParams
-        )}`;
-
-        const response = await axios.get(apiUrl);
-        setCarsData(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+  const queryParams: Record<string, string | undefined> = useMemo(() => {
+    return {
+      manufacturer: manu,
+      model: model,
+      location: location,
     };
+  }, [manu, model, location]);
 
-    fetchData();
-  }, [queryParams]);
+  const { isLoading, error, data } = useQuery("searchResults", () => {
+    return axios.get(
+      `http://localhost:4000/carsOnSale?${buildQueryParams(queryParams)}`
+    );
+  });
 
   // this function builds query params with filtering non-empty values, mapping over them to set key&value pairs and then joining them
   const buildQueryParams = (params: Record<string, string | undefined>) => {
@@ -49,10 +40,13 @@ const CarDetails = () => {
     );
   };
 
+  if (error) console.log(error);
+
   return (
     <div>
       <div className="h-[400px] w-[600px] overflow-scroll rounded-lg bg-white text-black">
-        {carsData?.map((car, index) => (
+        {isLoading && <h1>Loading</h1>}
+        {data?.data?.map((car: CarData, index: number) => (
           <div key={index}>
             <div className="flex items-start gap-5">
               <div
