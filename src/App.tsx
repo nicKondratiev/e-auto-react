@@ -11,9 +11,8 @@ function App() {
       <div className="flex h-screen justify-center bg-gray-700">
         <Routes>
           <Route path="/" element={<Search />} />
-          <Route path="/iyideba-manqanebi" element={<div>All Cars</div>} />
           <Route
-            path={`/iyideba-manqanebi/:manu/:model?/:location?`}
+            path={`/iyideba-manqanebi/:manu?/:model?/:location?`}
             element={<CarDetails />}
           />
         </Routes>
