@@ -1,7 +1,8 @@
 import { useMemo } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
+import { FetchCarsData } from "./FetchCarsData";
 
 type CarData = {
   manufacturer: string;
@@ -24,21 +25,8 @@ const CarDetails = () => {
   }, [manu, model, location]);
 
   const { isLoading, error, data } = useQuery("searchResults", () => {
-    return axios.get(
-      `http://localhost:4000/carsOnSale?${buildQueryParams(queryParams)}`
-    );
+    return FetchCarsData(queryParams);
   });
-
-  // this function builds query params with filtering non-empty values, mapping over them to set key&value pairs and then joining them
-  const buildQueryParams = (params: Record<string, string | undefined>) => {
-    return (
-      Object.entries(params)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .filter(([_, value]) => value !== undefined)
-        .map(([key, value]) => `${key}=${value}`)
-        .join("&")
-    );
-  };
 
   if (error) console.log(error);
 
