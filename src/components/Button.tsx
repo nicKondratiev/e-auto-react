@@ -9,21 +9,20 @@ const Button = () => {
   const model = store.searchParams.model.split(" ").join("-");
   const location = store.searchParams.location.split(" ").join("-");
 
+  // this function checks if the searchParam item exists and pushes in the array if it does
+  const truthyChecker = (routeParams: string[] = [], str: string) => {
+    if (str) {
+      routeParams.push(str);
+    }
+  };
+
   const handleNavigate = () => {
     // we push route params to this array if their value is truthy
-    const routeParams = [];
+    const routeParams: string[] = [];
 
-    if (manu) {
-      routeParams.push(manu);
-    }
-
-    if (model) {
-      routeParams.push(model);
-    }
-
-    if (location) {
-      routeParams.push(location);
-    }
+    truthyChecker(routeParams, manu);
+    truthyChecker(routeParams, model);
+    truthyChecker(routeParams, location);
 
     const url = `iyideba-manqanebi/${routeParams.join("/")}`;
 
