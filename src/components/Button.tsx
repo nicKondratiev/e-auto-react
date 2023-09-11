@@ -5,12 +5,17 @@ const Button = () => {
   const navigate = useNavigate();
   const store = useStore();
 
-  const manu = store.searchParams.manu.split(" ").join("-");
-  const model = store.searchParams.model.split(" ").join("-");
-  const location = store.searchParams.location.split(" ").join("-");
+  // this function replaces empty spaces with dashes (to make string valid for url)
+  const urlStringModifier = (value: string) => {
+    return value.replace(" ", "-");
+  };
+
+  const manu = urlStringModifier(store.searchParams.manu);
+  const model = urlStringModifier(store.searchParams.model);
+  const location = urlStringModifier(store.searchParams.location);
 
   // this function checks if the searchParam item exists and pushes in the array if it does
-  const truthyChecker = (routeParams: string[] = [], str: string) => {
+  const routePusher = (routeParams: string[] = [], str: string) => {
     if (str) {
       routeParams.push(str);
     }
@@ -20,9 +25,9 @@ const Button = () => {
     // we push route params to this array if their value is truthy
     const routeParams: string[] = [];
 
-    truthyChecker(routeParams, manu);
-    truthyChecker(routeParams, model);
-    truthyChecker(routeParams, location);
+    routePusher(routeParams, manu);
+    routePusher(routeParams, model);
+    routePusher(routeParams, location);
 
     const url = `iyideba-manqanebi/${routeParams.join("/")}`;
 
