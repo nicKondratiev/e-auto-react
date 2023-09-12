@@ -10,14 +10,27 @@ const Button = () => {
     return value.replace(" ", "-");
   };
 
-  const manu = urlStringModifier(store.searchParams.manu);
-  const model = urlStringModifier(store.searchParams.model);
-  const location = urlStringModifier(store.searchParams.location);
+  const manu = {
+    paramName: "manu",
+    url: urlStringModifier(store.searchParams.manu),
+  };
+  const model = {
+    paramName: "model",
+    url: urlStringModifier(store.searchParams.model),
+  };
+  const location = {
+    paramName: "location",
+    url: urlStringModifier(store.searchParams.location),
+  };
 
   // this function checks if the searchParam item exists and pushes in the array if it does
-  const routePusher = (routeParams: string[] = [], str: string) => {
-    if (str) {
-      routeParams.push(str);
+  const routePusher = (
+    routeParams: string[] = [],
+    str: { paramName: string; url: string }
+  ) => {
+    if (str.url) {
+      routeParams.push(`${str.paramName}=${str.url}`);
+      // routeParams.push(str);
     }
   };
 
@@ -29,7 +42,9 @@ const Button = () => {
     routePusher(routeParams, model);
     routePusher(routeParams, location);
 
-    const url = `iyideba-manqanebi/${routeParams.join("/")}`;
+    const url = `iyideba-manqanebi?${routeParams.join("&")}`;
+    // const url = `iyideba-manqanebi?manu=${manu}&?model=${model}&?location=${location}`;
+    // const url = `iyideba-manqanebi/${routeParams.join("/")}`;
 
     navigate(url);
   };

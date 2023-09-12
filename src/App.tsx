@@ -12,7 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Search />} />
           <Route
-            path={`/iyideba-manqanebi/:manu?/:model?/:location?`}
+            path={`/iyideba-manqanebi`}
+            // path={`/iyideba-manqanebi/:manu?/:model?/:location?`}
             element={<CarDetails />}
           />
         </Routes>
