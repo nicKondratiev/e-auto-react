@@ -30,7 +30,6 @@ const Button = () => {
   ) => {
     if (str.url) {
       routeParams.push(`${str.paramName}=${str.url}`);
-      // routeParams.push(str);
     }
   };
 
@@ -43,8 +42,6 @@ const Button = () => {
     routePusher(routeParams, location);
 
     const url = `iyideba-manqanebi?${routeParams.join("&")}`;
-    // const url = `iyideba-manqanebi?manu=${manu}&?model=${model}&?location=${location}`;
-    // const url = `iyideba-manqanebi/${routeParams.join("/")}`;
 
     navigate(url);
   };

@@ -1,19 +1,19 @@
 {
   "carsOnSale": [
     {
-      "manufacturer": "BMW",
+      "manu": "BMW",
       "model": "M3",
       "location": "Tbilisi",
       "img": "https://images.cars.com/cldstatic/wp-content/uploads/bmw-m3-competition-2021--01-angle--blue--exterior--front.jpg"
     },
     {
-      "manufacturer": "BMW",
+      "manu": "BMW",
       "model": "M4",
       "location": "Rustavi",
       "img": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2021/11/BMW-M4h.jpg"
     },
     {
-      "manufacturer": "BMW",
+      "manu": "BMW",
       "model": "M5",
       "location": "Gori",
       "img": "https://media.carsandbids.com/cdn-cgi/image/width=2080,quality=70/da4b9237bacccdf19c0760cab7aec4a8359010b0/photos/rG4lWL2g-0tvpmXYg-f.jpg?t=165844463741"

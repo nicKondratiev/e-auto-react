@@ -1,28 +1,28 @@
 import { useMemo } from "react";
 // import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { FetchCarsData } from "./FetchCarsData";
 
 type CarData = {
-  manufacturer: string;
+  manu: string;
   model: string;
   location: string;
   img: string;
 };
 
 const CarDetails = () => {
-  // we recieve this dynamic params from URL
-  const { manu, model, location } = useParams();
+  // we get current url's params with this useSearchParams hook
+  const [params] = useSearchParams();
 
   // we create this obj to iterate over it in buildQueryParams func
-  const queryParams: Record<string, string | undefined> = useMemo(() => {
+  const queryParams: Record<string, string | null> = useMemo(() => {
     return {
-      manufacturer: manu,
-      model: model,
-      location: location,
+      manu: params.get("manu"),
+      model: params.get("model"),
+      location: params.get("location"),
     };
-  }, [manu, model, location]);
+  }, [params]);
 
   const { isLoading, error, data } = useQuery("searchResults", () => {
     return FetchCarsData(queryParams);
@@ -44,7 +44,7 @@ const CarDetails = () => {
                 }}
               />
               <div>
-                <h1>Manufacturer: {car.manufacturer}</h1>
+                <h1>Manufacturer: {car.manu}</h1>
                 <p>Model: {car.model}</p>
                 <p>Location: {car.location}</p>
               </div>
