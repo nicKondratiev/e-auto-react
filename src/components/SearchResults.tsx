@@ -11,7 +11,7 @@ type CarData = {
   img: string;
 };
 
-const CarDetails = () => {
+const SearchResults = () => {
   // we get current url's params with this useSearchParams hook
   const [params] = useSearchParams();
 
@@ -56,4 +56,4 @@ const CarDetails = () => {
   );
 };
 
-export default CarDetails;
+export default SearchResults;
