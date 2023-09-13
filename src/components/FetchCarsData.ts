@@ -5,7 +5,7 @@ export const buildQueryParams = (params: Record<string, string | null>) => {
   return (
     Object.entries(params)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .filter(([_, value]) => value !== undefined)
+      .filter(([_, value]) => value)
       .map(([key, value]) => `${key}=${value}`)
       .join("&")
   );
