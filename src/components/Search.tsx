@@ -6,6 +6,7 @@ import Models from "./searchParam_comps/Models";
 // useStore from zustand
 import useStore from "../store";
 import Button from "./Button";
+import Clearence from "./searchParam_comps/Clearence";
 
 const Search = () => {
   const store = useStore();
@@ -17,6 +18,7 @@ const Search = () => {
         <Manufacturers />
         <Models />
         <Locations />
+        <Clearence />
         <Button />
       </div>
     </div>
