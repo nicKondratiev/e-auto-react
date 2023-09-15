@@ -1,12 +1,12 @@
 // reusables
-import Child from "../Child";
-import DropDown from "../DropDown";
+import Child from "../../Child";
+import DropDown from "../../DropDown";
 
 // json data
-import carsData from "../../json/carsData.json";
+import carsData from "../../../json/carsData.json";
 
 // useStore from zustand
-import useStore from "../../store";
+import useStore from "../../../store";
 
 const Models = () => {
   const store = useStore();

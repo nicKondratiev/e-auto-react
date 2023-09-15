@@ -1,7 +1,7 @@
 // searchParams
-import Manufacturers from "./searchParam_comps/Manufacturers";
-import Locations from "./searchParam_comps/Locations";
-import Models from "./searchParam_comps/Models";
+import Manufacturers from "./searchParam_comps/manufacturers/Manufacturers.tsx";
+import Locations from "./searchParam_comps/locations/Locations.tsx";
+import Models from "./searchParam_comps/models/Models.tsx";
 
 // useStore from zustand
 import useStore from "../store";
