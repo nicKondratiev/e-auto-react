@@ -4,6 +4,7 @@ type SearchParams = {
   manu: string;
   model: string;
   location: string;
+  custom: number | string;
 };
 
 type Store = {
@@ -11,6 +12,7 @@ type Store = {
   addManu: (manu: string) => void;
   addModel: (model: string) => void;
   addLocation: (location: string) => void;
+  addCustom: (custom: number) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -18,6 +20,7 @@ const useStore = create<Store>((set) => ({
     manu: "",
     model: "",
     location: "",
+    custom: "",
   },
   addManu: (manu) =>
     set((state) => ({
@@ -41,6 +44,14 @@ const useStore = create<Store>((set) => ({
       searchParams: {
         ...state.searchParams,
         location: location,
+      },
+    })),
+
+  addCustom: (custom) =>
+    set((state) => ({
+      searchParams: {
+        ...state.searchParams,
+        custom: custom,
       },
     })),
 }));
