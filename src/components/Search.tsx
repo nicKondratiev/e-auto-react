@@ -6,7 +6,7 @@ import Models from "./searchParam_comps/Models";
 // useStore from zustand
 import useStore from "../store";
 import Button from "./Button";
-import Clearence from "./searchParam_comps/Clearence";
+import Clearence from "./searchParam_comps/clearence/Clearence.tsx";
 
 const Search = () => {
   const store = useStore();
