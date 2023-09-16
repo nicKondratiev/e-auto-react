@@ -21,6 +21,7 @@ const SearchResults = () => {
       manu: params.get("manu"),
       model: params.get("model"),
       location: params.get("location"),
+      custom: params.get("custom"),
     };
   }, [params]);
 

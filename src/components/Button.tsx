@@ -36,6 +36,10 @@ const Button = () => {
         paramName: "location",
         paramValue: urlStringModifier(store.searchParams.location),
       },
+      {
+        paramName: "custom",
+        paramValue: urlStringModifier(String(store.searchParams.custom)),
+      },
     ];
   }, [store.searchParams]);
 

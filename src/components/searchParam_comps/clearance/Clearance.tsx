@@ -12,8 +12,6 @@ export default function Clearance() {
     store.addCustom(val);
   };
 
-  console.log(store.searchParams.custom);
-
   return (
     <div className="flex items-center rounded-xl border">
       <div
