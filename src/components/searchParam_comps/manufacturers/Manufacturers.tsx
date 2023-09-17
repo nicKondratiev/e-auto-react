@@ -16,7 +16,13 @@ const Manufacturers = () => {
   return (
     <DropDown
       header="Manufacturer"
-      Child={<Child data={manufacturers} setItem={store.addManu} />}
+      Child={
+        <Child
+          data={manufacturers}
+          item={store.searchParams.manu}
+          setItem={store.addManu}
+        />
+      }
     />
   );
 };

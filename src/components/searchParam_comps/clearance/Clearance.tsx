@@ -9,7 +9,12 @@ export default function Clearance() {
 
   // custom clearance setter function [1 === customs cleared, 0 === not cleared]
   const setCustom = (val: 1 | 0) => {
-    store.addCustom(val);
+    // if search custom value equals to already setted custom value then it will be removed
+    if (val === store.searchParams.custom) {
+      store.addCustom("");
+    } else {
+      store.addCustom(val);
+    }
   };
 
   return (

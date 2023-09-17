@@ -21,7 +21,13 @@ const Models = () => {
   return (
     <DropDown
       header="Models"
-      Child={<Child data={models} setItem={store.addModel} />}
+      Child={
+        <Child
+          data={models}
+          setItem={store.addModel}
+          item={store.searchParams.model}
+        />
+      }
     />
   );
 };

@@ -12,7 +12,7 @@ type Store = {
   addManu: (manu: string) => void;
   addModel: (model: string) => void;
   addLocation: (location: string) => void;
-  addCustom: (custom: number) => void;
+  addCustom: (custom: number | string) => void;
 };
 
 const useStore = create<Store>((set) => ({

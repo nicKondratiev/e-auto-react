@@ -16,7 +16,13 @@ const Locations = () => {
   return (
     <DropDown
       header="Location"
-      Child={<Child data={locations} setItem={store.addLocation} />}
+      Child={
+        <Child
+          data={locations}
+          setItem={store.addLocation}
+          item={store.searchParams.location}
+        />
+      }
     />
   );
 };
