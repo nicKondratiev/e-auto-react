@@ -15,7 +15,9 @@ export const buildQueryParams = (params: Record<string, string | null>) => {
 export const FetchCarsData = (queryParams: Record<string, string | null>) => {
   console.log(buildQueryParams(queryParams));
   const response = axios.get(
-    `http://localhost:4000/carsOnSale?${buildQueryParams(queryParams)}`
+    `http://localhost:4000/carsOnSale?${buildQueryParams(
+      queryParams
+    )}&_limit=10`
   );
 
   return response;

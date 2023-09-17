@@ -40,6 +40,10 @@ const Button = () => {
         paramName: "custom",
         paramValue: urlStringModifier(String(store.searchParams.custom)),
       },
+      {
+        paramName: "page",
+        paramValue: "1",
+      },
     ];
   }, [store.searchParams]);
 
