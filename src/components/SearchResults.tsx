@@ -1,8 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 // import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { FetchCarsData } from "./FetchCarsData";
+import Pagination from "../Pagination";
 
 type CarData = {
   manu: string;
@@ -12,6 +13,7 @@ type CarData = {
 };
 
 const SearchResults = () => {
+  const [page, setPage] = useState<number>(1);
   // we get current url's params with this useSearchParams hook
   const [params] = useSearchParams();
 
@@ -29,6 +31,8 @@ const SearchResults = () => {
   const { isLoading, error, data } = useQuery("searchResults", () => {
     return FetchCarsData(queryParams);
   });
+
+  console.log(page);
 
   if (error) console.log(error);
 
@@ -53,6 +57,7 @@ const SearchResults = () => {
             </div>
           </div>
         ))}
+        <Pagination page={page} setPage={setPage} />
       </div>
     </div>
   );
