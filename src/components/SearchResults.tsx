@@ -12,27 +12,28 @@ type CarData = {
   img: string;
 };
 
+export type QueryParams = Record<string, string | number | null>;
+
 const SearchResults = () => {
   const [page, setPage] = useState<number>(1);
   // we get current url's params with this useSearchParams hook
   const [params] = useSearchParams();
 
   // we create this obj to iterate over it in buildQueryParams func
-  const queryParams: Record<string, string | null> = useMemo(() => {
+  const queryParams: QueryParams = useMemo(() => {
     return {
       manu: params.get("manu"),
       model: params.get("model"),
       location: params.get("location"),
       custom: params.get("custom"),
-      _page: params.get("page"),
+      _page: page,
+      _limit: "10",
     };
-  }, [params]);
+  }, [params, page]);
 
-  const { isLoading, error, data } = useQuery("searchResults", () => {
+  const { isLoading, error, data } = useQuery(["searchResults", page], () => {
     return FetchCarsData(queryParams);
   });
-
-  console.log(page);
 
   if (error) console.log(error);
 

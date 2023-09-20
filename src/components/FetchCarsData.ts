@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// query params type imported form SearchResults.tsx
+import { QueryParams } from "./SearchResults";
+
 // function to build query parameters
-export const buildQueryParams = (params: Record<string, string | null>) => {
+export const buildQueryParams = (params: QueryParams) => {
   return (
     Object.entries(params)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -12,12 +15,9 @@ export const buildQueryParams = (params: Record<string, string | null>) => {
 };
 
 // function to fetch car data
-export const FetchCarsData = (queryParams: Record<string, string | null>) => {
-  console.log(buildQueryParams(queryParams));
+export const FetchCarsData = (queryParams: QueryParams) => {
   const response = axios.get(
-    `http://localhost:4000/carsOnSale?${buildQueryParams(
-      queryParams
-    )}&_limit=10`
+    `http://localhost:4000/carsOnSale?${buildQueryParams(queryParams)}`
   );
 
   return response;
