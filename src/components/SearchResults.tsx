@@ -1,5 +1,4 @@
 import { useMemo, useState } from "react";
-// import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { FetchCarsData } from "./FetchCarsData";
@@ -31,9 +30,12 @@ const SearchResults = () => {
     };
   }, [params, page]);
 
-  const { isLoading, error, data } = useQuery(["searchResults", page], () => {
-    return FetchCarsData(queryParams);
-  });
+  const { isLoading, error, data } = useQuery(
+    ["searchResults", queryParams],
+    () => {
+      return FetchCarsData(queryParams);
+    }
+  );
 
   if (error) console.log(error);
 
