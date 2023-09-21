@@ -1,6 +1,4 @@
-// import { useNavigate, useLocation } from "react-router-dom";
-// import { useSearchParams } from "react-router-dom";
-
+import { Location } from "react-router-dom";
 import { SetStateAction } from "react";
 
 export const handlePagination = (

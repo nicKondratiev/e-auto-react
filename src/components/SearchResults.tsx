@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { FetchCarsData } from "./FetchCarsData";
-import Pagination from "../Pagination";
+import Pagination from "./pagination/Pagination";
 
 type CarData = {
   manu: string;
