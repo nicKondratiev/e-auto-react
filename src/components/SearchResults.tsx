@@ -14,9 +14,11 @@ type CarData = {
 export type QueryParams = Record<string, string | number | null>;
 
 const SearchResults = () => {
-  const [page, setPage] = useState<number>(1);
   // we get current url's params with this useSearchParams hook
   const [params] = useSearchParams();
+  const [page, setPage] = useState<number>(1);
+
+  console.log(page);
 
   // we create this obj to iterate over it in buildQueryParams func
   const queryParams: QueryParams = useMemo(() => {
@@ -25,10 +27,10 @@ const SearchResults = () => {
       model: params.get("model"),
       location: params.get("location"),
       custom: params.get("custom"),
-      _page: page,
+      _page: params.get("page"),
       _limit: "10",
     };
-  }, [params, page]);
+  }, [params]);
 
   const { isLoading, error, data } = useQuery(
     ["searchResults", queryParams],
@@ -60,7 +62,11 @@ const SearchResults = () => {
             </div>
           </div>
         ))}
-        <Pagination page={page} setPage={setPage} />
+        <Pagination
+          // incase user removes "page" query param from url we still want to pass default page value which is 1
+          page={Number(params.get("page") ? params.get("page") : page)}
+          setPage={setPage}
+        />
       </div>
     </div>
   );
