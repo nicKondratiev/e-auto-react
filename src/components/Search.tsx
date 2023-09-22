@@ -7,6 +7,7 @@ import Models from "./searchParam_comps/models/Models.tsx";
 import useStore from "../store";
 import Button from "./Button";
 import Clearence from "./searchParam_comps/clearance/Clearance.tsx";
+import Year from "./searchParam_comps/year/Year.tsx";
 
 const Search = () => {
   const store = useStore();
@@ -20,6 +21,7 @@ const Search = () => {
         <Locations />
         <Clearence />
         <Button />
+        <Year />
       </div>
     </div>
   );
