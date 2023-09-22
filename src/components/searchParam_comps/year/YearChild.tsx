@@ -1,4 +1,10 @@
+import FromTo from "../fromTo/FromTo";
+
 const YearChild = () => {
-  return <div>YearChild</div>;
+  return (
+    <div>
+      <FromTo />
+    </div>
+  );
 };
 export default YearChild;
