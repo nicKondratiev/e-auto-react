@@ -21,6 +21,7 @@ const Models = () => {
   return (
     <DropDown
       header="Models"
+      overflow="scroll"
       Child={
         <Child
           data={models}

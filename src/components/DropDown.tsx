@@ -3,9 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 type DropDownProps = {
   header: string;
   Child: React.ReactNode;
+  overflow: "hidden" | "scroll";
 };
 
-const DropDown = ({ header, Child }: DropDownProps) => {
+const DropDown = ({ header, Child, overflow }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -42,7 +43,7 @@ const DropDown = ({ header, Child }: DropDownProps) => {
         ref={dropdownRef}
         className={`${
           isOpen ? "absolute" : "hidden"
-        }  h-[350px] w-[350px] overflow-scroll rounded-xl bg-white`}
+        } overflow-${overflow}  h-[350px] w-[350px] rounded-xl bg-white`}
       >
         {Child}
       </div>

@@ -16,6 +16,7 @@ const Locations = () => {
   return (
     <DropDown
       header="Location"
+      overflow="scroll"
       Child={
         <Child
           data={locations}

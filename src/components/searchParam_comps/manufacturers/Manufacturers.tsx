@@ -16,6 +16,7 @@ const Manufacturers = () => {
   return (
     <DropDown
       header="Manufacturer"
+      overflow="scroll"
       Child={
         <Child
           data={manufacturers}
