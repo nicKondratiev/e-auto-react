@@ -4,6 +4,7 @@ type InputType = {
   name: string;
   placeholder: string;
   type: string;
+  value: number;
   hanldeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -12,22 +13,24 @@ import useStore from "../../../store";
 const FromTo = () => {
   const store = useStore();
 
-  console.log(store.searchParams);
-
   const inputData: InputType[] = [
     {
       name: "from",
       placeholder: "from",
       type: "number",
+      value: store.searchParams.year.from,
       hanldeChange: (e) => store.addYearFrom(Number(e.target.value)),
     },
     {
       name: "to",
       placeholder: "to",
       type: "number",
+      value: store.searchParams.year.to,
       hanldeChange: (e) => store.addYearTo(Number(e.target.value)),
     },
   ];
+
+  console.log(store.searchParams);
 
   return (
     <div className="h-20 bg-gray-200 text-black">
@@ -42,6 +45,7 @@ const FromTo = () => {
             type={input.type}
             placeholder={input.placeholder}
             key={index}
+            value={input.value ? input.value : ""}
           />
         ))}
       </div>
