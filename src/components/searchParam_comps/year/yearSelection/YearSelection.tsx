@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import "../styles.css";
 
 import useStore from "../../../../store";
-import YearList from "./YearList";
+import DataList from "../../dataList/DataList";
 
 const YearSelection = () => {
   const store = useStore();
@@ -36,8 +36,8 @@ const YearSelection = () => {
 
   return (
     <div className="flex flex-1 overflow-y-auto text-base text-black">
-      <YearList years={yearsFrom} onClickHandler={store.addYearFrom} />
-      <YearList years={yearsTo} onClickHandler={store.addYearTo} />
+      <DataList items={yearsFrom} onClickHandler={store.addYearFrom} />
+      <DataList items={yearsTo} onClickHandler={store.addYearTo} />
     </div>
   );
 };

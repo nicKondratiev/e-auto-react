@@ -1,6 +1,7 @@
 import FromTo from "../fromTo/FromTo";
 
 import useStore from "../../../store";
+import PriceSelection from "./priceSelection/PriceSelection";
 
 const PriceChild = () => {
   const store = useStore();
@@ -13,7 +14,7 @@ const PriceChild = () => {
         addFrom={store.addPriceFrom}
         addTo={store.addPriceTo}
       />
-      <div>Fuel</div>
+      <PriceSelection />
     </div>
   );
 };
