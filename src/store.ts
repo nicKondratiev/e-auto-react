@@ -6,13 +6,12 @@ type SearchParams = {
   location: string;
   custom: number | string;
   year: FromTo;
+  price: FromTo;
 };
 
 type FromTo = {
   from: number;
   to: number;
-  // from: number | string;
-  // to: number | string;
 };
 
 type Store = {
@@ -23,8 +22,8 @@ type Store = {
   addCustom: (custom: number | string) => void;
   addYearFrom: (year: number) => void;
   addYearTo: (year: number) => void;
-  // addYearFrom: (year: number | string) => void;
-  // addYearTo: (year: number | string) => void;
+  addPriceFrom: (price: number) => void;
+  addPriceTo: (price: number) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -34,6 +33,7 @@ const useStore = create<Store>((set) => ({
     location: "",
     custom: "",
     year: { from: 0, to: 0 },
+    price: { from: 0, to: 0 },
     // year: { from: "", to: "" },
   },
   addManu: (manu) =>
@@ -87,6 +87,28 @@ const useStore = create<Store>((set) => ({
         year: {
           ...state.searchParams.year,
           to: year,
+        },
+      },
+    })),
+
+  addPriceFrom: (price) =>
+    set((state) => ({
+      searchParams: {
+        ...state.searchParams,
+        price: {
+          ...state.searchParams.price,
+          from: price,
+        },
+      },
+    })),
+
+  addPriceTo: (price) =>
+    set((state) => ({
+      searchParams: {
+        ...state.searchParams,
+        price: {
+          ...state.searchParams.price,
+          to: price,
         },
       },
     })),

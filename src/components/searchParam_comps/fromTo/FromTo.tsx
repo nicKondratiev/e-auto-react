@@ -1,5 +1,12 @@
 import "./styles.css";
 
+type FromToProps = {
+  fromVal: number;
+  toVal: number;
+  addFrom: (input: number) => void;
+  addTo: (input: number) => void;
+};
+
 type InputType = {
   name: string;
   placeholder: string;
@@ -10,7 +17,7 @@ type InputType = {
 
 import useStore from "../../../store";
 
-const FromTo = () => {
+const FromTo = ({ fromVal, toVal, addFrom, addTo }: FromToProps) => {
   const store = useStore();
 
   const inputData: InputType[] = [
@@ -18,15 +25,15 @@ const FromTo = () => {
       name: "from",
       placeholder: "from",
       type: "number",
-      value: store.searchParams.year.from,
-      hanldeChange: (e) => store.addYearFrom(Number(e.target.value)),
+      value: fromVal,
+      hanldeChange: (e) => addFrom(Number(e.target.value)),
     },
     {
       name: "to",
       placeholder: "to",
       type: "number",
-      value: store.searchParams.year.to,
-      hanldeChange: (e) => store.addYearTo(Number(e.target.value)),
+      value: toVal,
+      hanldeChange: (e) => addTo(Number(e.target.value)),
     },
   ];
 

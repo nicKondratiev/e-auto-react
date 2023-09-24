@@ -7,6 +7,7 @@ import Models from "./searchParam_comps/models/Models.tsx";
 import Button from "./Button";
 import Clearence from "./searchParam_comps/clearance/Clearance.tsx";
 import Year from "./searchParam_comps/year/Year.tsx";
+import Price from "./searchParam_comps/price/Price.tsx";
 
 const Search = () => {
   return (
@@ -18,6 +19,7 @@ const Search = () => {
         <Clearence />
         <Button />
         <Year />
+        <Price />
       </div>
     </div>
   );

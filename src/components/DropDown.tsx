@@ -41,6 +41,7 @@ const DropDown = ({ header, Child, overflow }: DropDownProps) => {
 
       <div
         ref={dropdownRef}
+        // eslint-disable-next-line tailwindcss/no-custom-classname
         className={`${
           isOpen ? "absolute" : "hidden"
         } overflow-${overflow}  h-[350px] w-[350px] rounded-xl bg-white`}
