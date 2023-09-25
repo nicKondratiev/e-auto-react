@@ -7,6 +7,7 @@ type SearchParams = {
   custom: number | string;
   year: FromTo;
   price: FromTo;
+  fuelType: string;
 };
 
 type FromTo = {
@@ -24,6 +25,7 @@ type Store = {
   addYearTo: (year: number) => void;
   addPriceFrom: (price: number) => void;
   addPriceTo: (price: number) => void;
+  addFuelType: (fuel: string) => void;
 };
 
 const useStore = create<Store>((set) => ({
@@ -34,7 +36,7 @@ const useStore = create<Store>((set) => ({
     custom: "",
     year: { from: 0, to: 0 },
     price: { from: 0, to: 0 },
-    // year: { from: "", to: "" },
+    fuelType: "",
   },
   addManu: (manu) =>
     set((state) => ({
@@ -110,6 +112,14 @@ const useStore = create<Store>((set) => ({
           ...state.searchParams.price,
           to: price,
         },
+      },
+    })),
+
+  addFuelType: (fuelType) =>
+    set((state) => ({
+      searchParams: {
+        ...state.searchParams,
+        fuelType: fuelType,
       },
     })),
 }));
