@@ -8,6 +8,7 @@ import Button from "./Button";
 import Clearence from "./searchParam_comps/clearance/Clearance.tsx";
 import Year from "./searchParam_comps/year/Year.tsx";
 import Price from "./searchParam_comps/price/Price.tsx";
+import Fuel from "./searchParam_comps/fuel/Fuel.tsx";
 
 const Search = () => {
   return (
@@ -20,6 +21,7 @@ const Search = () => {
         <Button />
         <Year />
         <Price />
+        <Fuel />
       </div>
     </div>
   );
