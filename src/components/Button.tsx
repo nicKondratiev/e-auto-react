@@ -41,6 +41,10 @@ const Button = () => {
         paramValue: urlStringModifier(String(store.searchParams.custom)),
       },
       {
+        paramName: "fuelType",
+        paramValue: urlStringModifier(String(store.searchParams.fuelType)),
+      },
+      {
         paramName: "page",
         paramValue: "1",
       },

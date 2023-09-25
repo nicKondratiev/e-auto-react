@@ -18,8 +18,6 @@ const SearchResults = () => {
   const [params] = useSearchParams();
   const [page, setPage] = useState<number>(1);
 
-  console.log(page);
-
   // we create this obj to iterate over it in buildQueryParams func
   const queryParams: QueryParams = useMemo(() => {
     return {
@@ -27,6 +25,7 @@ const SearchResults = () => {
       model: params.get("model"),
       location: params.get("location"),
       custom: params.get("custom"),
+      fuelType: params.get("fuelType"),
       _page: params.get("page"),
       _limit: "10",
     };
