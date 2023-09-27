@@ -41,8 +41,24 @@ const Button = () => {
         paramValue: urlStringModifier(String(store.searchParams.custom)),
       },
       {
+        paramName: "yearFrom",
+        paramValue: urlStringModifier(String(store.searchParams.year.from)),
+      },
+      {
+        paramName: "yearTo",
+        paramValue: urlStringModifier(String(store.searchParams.year.to)),
+      },
+      {
         paramName: "fuelType",
         paramValue: urlStringModifier(String(store.searchParams.fuelType)),
+      },
+      {
+        paramName: "priceTo",
+        paramValue: urlStringModifier(String(store.searchParams.price.to)),
+      },
+      {
+        paramName: "priceFrom",
+        paramValue: urlStringModifier(String(store.searchParams.price.from)),
       },
       {
         paramName: "page",

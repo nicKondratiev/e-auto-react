@@ -6,7 +6,9 @@
       "location": "Tbilisi",
       "img": "https://images.cars.com/cldstatic/wp-content/uploads/bmw-m3-competition-2021--01-angle--blue--exterior--front.jpg",
       "custom": 1,
-      "fuelType": "Petrol"
+      "fuelType": "Petrol",
+      "priceFrom": 10000,
+      "priceTo": 15000
     },
     {
       "manu": "BMW",
@@ -14,7 +16,9 @@
       "location": "Rustavi",
       "img": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2021/11/BMW-M4h.jpg",
       "custom": 0,
-      "fuelType": "Petrol"
+      "fuelType": "Petrol",
+      "priceFrom": 16000,
+      "priceTo": 22000
     },
     {
       "manu": "BMW",
@@ -22,7 +26,9 @@
       "location": "Gori",
       "img": "https://media.carsandbids.com/cdn-cgi/image/width=2080,quality=70/da4b9237bacccdf19c0760cab7aec4a8359010b0/photos/rG4lWL2g-0tvpmXYg-f.jpg?t=165844463741",
       "custom": 1,
-      "fuelType": "Petrol"
+      "fuelType": "Petrol",
+      "priceFrom": 23000,
+      "priceTo": 28000
     },
     {
       "manu": "Porsche",
@@ -30,7 +36,9 @@
       "location": "Tbilisi",
       "img": "https://media.ed.edmunds-media.com/porsche/911/2024/oem/2024_porsche_911_coupe_carrera-4_fq_oem_1_1280.jpg",
       "custom": 1,
-      "fuelType": "Hybrid"
+      "fuelType": "Hybrid",
+      "priceFrom": 29000,
+      "priceTo": 35000
     },
     {
       "manu": "Mercedes-Benz",
@@ -38,7 +46,9 @@
       "location": "Kutaisi",
       "img": "https://hips.hearstapps.com/hmg-prod/images/2022-mercedes-benz-c-class-106-1613767205.jpg",
       "custom": 0,
-      "fuelType": "Petrol"
+      "fuelType": "Petrol",
+      "priceFrom": 36000,
+      "priceTo": 42000
     },
     {
       "manu": "Porsche",
@@ -46,7 +56,9 @@
       "location": "Batumi",
       "img": "https://www.porschedublin.ie/binary/getasync/15599e51-ec93-4812-9131-203984e867a6/image.jpg?s=6",
       "custom": 1,
-      "fuelType": "Hybrid"
+      "fuelType": "Hybrid",
+      "priceFrom": 43000,
+      "priceTo": 49000
     },
     {
       "manu": "Mercedes-Benz",
@@ -54,7 +66,9 @@
       "location": "Poti",
       "img": "https://cdn.carbuzz.com/gallery-images/1600/1131000/0/1131057.jpg",
       "custom": 0,
-      "fuelType": "Electric"
+      "fuelType": "Electric",
+      "priceFrom": 50000,
+      "priceTo": 56000
     },
     {
       "manu": "Porsche",
@@ -62,7 +76,9 @@
       "location": "Rustavi",
       "img": "https://imageio.forbes.com/specials-images/imageserve/6188bd471b02b8e76cb3fa1f/0x0.jpg?format=jpg&width=1200",
       "custom": 1,
-      "fuelType": "Hybrid"
+      "fuelType": "Hybrid",
+      "priceFrom": 57000,
+      "priceTo": 63000
     },
     {
       "manu": "Mercedes-Benz",
@@ -70,7 +86,9 @@
       "location": "Tbilisi",
       "img": "https://stimg.cardekho.com/images/carexteriorimages/930x620/Mercedes-Benz/S-Class/10853/1690451611932/front-left-side-47.jpg",
       "custom": 0,
-      "fuelType": "Petrol"
+      "fuelType": "Petrol",
+      "priceFrom": 64000,
+      "priceTo": 70000
     },
     {
       "manu": "Porsche",
@@ -78,7 +96,9 @@
       "location": "Kutaisi",
       "img": "https://static01.nyt.com/images/2016/11/22/automobiles/autoreviews/driven-porsche-718/driven-porsche-718-superJumbo.jpg",
       "custom": 1,
-      "fuelType": "Hybrid"
+      "fuelType": "Hybrid",
+      "priceFrom": 71000,
+      "priceTo": 77000
     },
     {
       "manu": "Mercedes-Benz",
@@ -86,7 +106,9 @@
       "location": "Batumi",
       "img": "https://media.ed.edmunds-media.com/mercedes-benz/gle-class/2021/oem/2021_mercedes-benz_gle-class_4dr-suv_amg-gle-53_fq_oem_1_1600.jpg",
       "custom": 0,
-      "fuelType": "Petrol"
+      "fuelType": "Petrol",
+      "priceFrom": 78000,
+      "priceTo": 84000
     },
     {
       "manu": "Porsche",
@@ -94,7 +116,9 @@
       "location": "Poti",
       "img": "https://static.autox.com/uploads/2022/01/Porsche-Macan-front-left-corner-profile.jpg",
       "custom": 1,
-      "fuelType": "Hybrid"
+      "fuelType": "Hybrid",
+      "priceFrom": 85000,
+      "priceTo": 90000
     },
     {
       "manu": "Mercedes-Benz",
@@ -102,7 +126,9 @@
       "location": "Rustavi",
       "img": "https://www.purosautos.com/wp-content/uploads/2023/07/mercedes-benz.jpg",
       "custom": 0,
-      "fuelType": "Petrol"
+      "fuelType": "Petrol",
+      "priceFrom": 91000,
+      "priceTo": 96000
     }
   ]
 }
