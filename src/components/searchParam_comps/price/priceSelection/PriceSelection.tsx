@@ -19,8 +19,16 @@ const PriceSelection = () => {
 
   return (
     <div className="flex text-base text-black">
-      <DataList items={pricesFrom} onClickHandler={store.addPriceFrom} />
-      <DataList items={pricesTo} onClickHandler={store.addPriceTo} />
+      <DataList
+        items={pricesFrom}
+        value={store.searchParams.price.from}
+        onClickHandler={store.addPriceFrom}
+      />
+      <DataList
+        items={pricesTo}
+        value={store.searchParams.price.to}
+        onClickHandler={store.addPriceTo}
+      />
     </div>
   );
 };

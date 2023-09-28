@@ -36,8 +36,16 @@ const YearSelection = () => {
 
   return (
     <div className="flex flex-1 overflow-y-auto text-base text-black">
-      <DataList items={yearsFrom} onClickHandler={store.addYearFrom} />
-      <DataList items={yearsTo} onClickHandler={store.addYearTo} />
+      <DataList
+        items={yearsFrom}
+        value={store.searchParams.year.from}
+        onClickHandler={store.addYearFrom}
+      />
+      <DataList
+        items={yearsTo}
+        value={store.searchParams.year.to}
+        onClickHandler={store.addYearTo}
+      />
     </div>
   );
 };
