@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 
 type SearchParams = {
   paramName: string;
-  paramValue: string;
+  paramValue: string | number;
 }[];
 
 const Button = () => {
@@ -18,8 +18,14 @@ const Button = () => {
   const [resCount, setResCount] = useState<number>(0);
 
   // this function replaces empty spaces with dashes (to make string valid for url)
-  const urlStringModifier = (value: string) => {
-    return value.replace(" ", "-");
+  const urlStringModifier = (value: string | number) => {
+    if (typeof value === "string") {
+      return value.replace(" ", "-");
+    } else if (typeof value === "number") {
+      return value;
+    } else {
+      return "";
+    }
   };
 
   const searchParams: SearchParams = useMemo(() => {
@@ -38,27 +44,27 @@ const Button = () => {
       },
       {
         paramName: "custom",
-        paramValue: urlStringModifier(String(store.searchParams.custom)),
+        paramValue: urlStringModifier(store.searchParams.custom),
       },
       {
         paramName: "yearFrom",
-        paramValue: urlStringModifier(String(store.searchParams.year.from)),
+        paramValue: urlStringModifier(store.searchParams.year.from),
       },
       {
         paramName: "yearTo",
-        paramValue: urlStringModifier(String(store.searchParams.year.to)),
-      },
-      {
-        paramName: "fuelType",
-        paramValue: urlStringModifier(String(store.searchParams.fuelType)),
-      },
-      {
-        paramName: "priceTo",
-        paramValue: urlStringModifier(String(store.searchParams.price.to)),
+        paramValue: urlStringModifier(store.searchParams.year.to),
       },
       {
         paramName: "priceFrom",
-        paramValue: urlStringModifier(String(store.searchParams.price.from)),
+        paramValue: urlStringModifier(store.searchParams.price.from),
+      },
+      {
+        paramName: "priceTo",
+        paramValue: urlStringModifier(store.searchParams.price.to),
+      },
+      {
+        paramName: "fuelType",
+        paramValue: urlStringModifier(store.searchParams.fuelType),
       },
       {
         paramName: "page",
@@ -67,10 +73,15 @@ const Button = () => {
     ];
   }, [store.searchParams]);
 
+  axios.create({
+    baseURL: "http://localhost:4000/carsOnSale",
+    headers: {},
+  });
+
   // this function checks if the searchParam item exists and pushes in the array if it does
   const routePusher = (
     routeParams: string[] = [],
-    param: { paramName: string; paramValue: string }
+    param: Record<string, string | number>
   ) => {
     if (param.paramValue) {
       routeParams.push(`${param.paramName}=${param.paramValue}`);
