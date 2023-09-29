@@ -73,11 +73,6 @@ const Button = () => {
     ];
   }, [store.searchParams]);
 
-  axios.create({
-    baseURL: "http://localhost:4000/carsOnSale",
-    headers: {},
-  });
-
   // this function checks if the searchParam item exists and pushes in the array if it does
   const routePusher = (
     routeParams: string[] = [],
@@ -88,6 +83,11 @@ const Button = () => {
     }
   };
 
+  const lowerYearLimit = store.searchParams.year.from || 0;
+  const upperYearLimit = store.searchParams.year.to || 100000;
+  const lowerPriceLimit = store.searchParams.price.from || 0;
+  const upperPriceLimit = store.searchParams.price.to || 100000;
+
   useEffect(() => {
     const routeParams: string[] = [];
 
@@ -97,13 +97,33 @@ const Button = () => {
       const res = await axios.get(
         `http://localhost:4000/carsOnSale?${routeParams.join("&")}`
       );
-      setResCount(res.data.length);
+
+      const filteredData = res.data?.filter((car) => {
+        const carYear = car.year;
+        const carPrice = car.price;
+
+        return (
+          carYear >= lowerYearLimit &&
+          carYear <= upperYearLimit &&
+          carPrice >= lowerPriceLimit &&
+          carPrice <= upperPriceLimit
+        );
+      });
+
+      console.log(filteredData);
+      setResCount(filteredData.length);
     };
     fetchCars();
 
     const urlQueryParams = `iyideba-manqanebi?${routeParams.join("&")}`;
     setUrl(urlQueryParams);
-  }, [searchParams]);
+  }, [
+    searchParams,
+    lowerYearLimit,
+    upperYearLimit,
+    lowerPriceLimit,
+    upperPriceLimit,
+  ]);
 
   return (
     <div className="col-start-4 row-start-3">
