@@ -4,7 +4,7 @@ type SearchParams = {
   manu: string;
   model: string;
   location: string;
-  custom: number | string;
+  custom: number;
   year: FromTo;
   price: FromTo;
   fuelType: string;
@@ -15,17 +15,21 @@ type FromTo = {
   to: number;
 };
 
+// we create this types to avoid writing same types again and again
+type StringVoid = (val: string) => void;
+type NumVoid = (val: number) => void;
+
 type Store = {
   searchParams: SearchParams;
-  addManu: (manu: string) => void;
-  addModel: (model: string) => void;
-  addLocation: (location: string) => void;
-  addCustom: (custom: number | string) => void;
-  addYearFrom: (year: number) => void;
-  addYearTo: (year: number) => void;
-  addPriceFrom: (price: number) => void;
-  addPriceTo: (price: number) => void;
-  addFuelType: (fuel: string) => void;
+  addManu: StringVoid;
+  addModel: StringVoid;
+  addLocation: StringVoid;
+  addFuelType: StringVoid;
+  addYearFrom: NumVoid;
+  addYearTo: NumVoid;
+  addPriceFrom: NumVoid;
+  addPriceTo: NumVoid;
+  addCustom: NumVoid;
 };
 
 const useStore = create<Store>((set) => ({
@@ -33,7 +37,7 @@ const useStore = create<Store>((set) => ({
     manu: "",
     model: "",
     location: "",
-    custom: "",
+    custom: 0,
     year: { from: 0, to: 0 },
     price: { from: 0, to: 0 },
     fuelType: "",
