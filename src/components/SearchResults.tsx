@@ -3,17 +3,25 @@ import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { FetchCarsData } from "./FetchCarsData";
 import Pagination from "./pagination/Pagination";
+import { useContext } from "react";
+
+import { StoreContext } from "../App";
 
 type CarData = {
   manu: string;
   model: string;
   location: string;
+  price: number;
   img: string;
 };
 
 export type QueryParams = Record<string, string | number | null>;
 
 const SearchResults = () => {
+  const { searchParams } = useContext(StoreContext);
+
+  console.log(searchParams);
+
   // we get current url's params with this useSearchParams hook
   const [params] = useSearchParams();
   const [page, setPage] = useState<number>(1);
@@ -27,7 +35,7 @@ const SearchResults = () => {
       custom: params.get("custom"),
       fuelType: params.get("fuelType"),
       _page: params.get("page"),
-      _limit: "10",
+      // _limit: "10",
     };
   }, [params]);
 
@@ -40,11 +48,13 @@ const SearchResults = () => {
 
   if (error) console.log(error);
 
+  const carsData = data?.data;
+
   return (
     <div>
       <div className="h-[400px] w-[600px] overflow-scroll rounded-lg bg-white text-black">
         {isLoading && <h1>Loading</h1>}
-        {data?.data?.map((car: CarData, index: number) => (
+        {carsData?.map((car: CarData, index: number) => (
           <div key={index}>
             <div className="flex items-start gap-5">
               <div
@@ -57,6 +67,7 @@ const SearchResults = () => {
                 <h1>Manufacturer: {car.manu}</h1>
                 <p>Model: {car.model}</p>
                 <p>Location: {car.location}</p>
+                <p>Price: {car.price}</p>
               </div>
             </div>
           </div>
