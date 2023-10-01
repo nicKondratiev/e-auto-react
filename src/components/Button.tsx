@@ -2,6 +2,7 @@ import useStore from "../store";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
+import DataFiltering from "./DataFiltering";
 
 type SearchParams = {
   paramName: string;
@@ -98,32 +99,22 @@ const Button = () => {
         `http://localhost:4000/carsOnSale?${routeParams.join("&")}`
       );
 
-      const filteredData = res.data?.filter((car) => {
-        const carYear = car.year;
-        const carPrice = car.price;
-
-        return (
-          carYear >= lowerYearLimit &&
-          carYear <= upperYearLimit &&
-          carPrice >= lowerPriceLimit &&
-          carPrice <= upperPriceLimit
-        );
-      });
+      const filteredData = DataFiltering(
+        res.data,
+        lowerYearLimit,
+        upperYearLimit,
+        lowerPriceLimit,
+        upperPriceLimit
+      );
 
       console.log(filteredData);
       setResCount(filteredData.length);
     };
-    fetchCars();
 
+    fetchCars();
     const urlQueryParams = `iyideba-manqanebi?${routeParams.join("&")}`;
     setUrl(urlQueryParams);
-  }, [
-    searchParams,
-    lowerYearLimit,
-    upperYearLimit,
-    lowerPriceLimit,
-    upperPriceLimit,
-  ]);
+  }, [store.searchParams, searchParams]);
 
   return (
     <div className="col-start-4 row-start-3">
