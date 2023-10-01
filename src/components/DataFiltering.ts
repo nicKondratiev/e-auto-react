@@ -1,4 +1,4 @@
-type CarType = {
+export type CarType = {
   manu: string;
   model: string;
   location: string;
