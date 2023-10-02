@@ -6,6 +6,7 @@ import { FetchCarsData } from "./FetchCarsData";
 // util function
 import DataFiltering from "./DataFiltering";
 import Cars from "./Cars";
+import Loading from "./Loading";
 
 export type QueryParams = Record<string, string | number | null>;
 
@@ -48,12 +49,13 @@ const SearchResults = () => {
     upperPriceLimit
   );
 
-  console.log(filtered);
-
   return (
     <div>
-      {isLoading && <h1>Loading</h1>}
-      <Cars data={filtered} />
+      {isLoading ? (
+        <Loading color="darkOrange" type="spinningBubbles" />
+      ) : (
+        <Cars data={filtered} />
+      )}
     </div>
   );
 };
