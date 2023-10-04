@@ -1,13 +1,10 @@
 import useStore from "../store";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import DataFiltering from "./DataFiltering";
+import { FetchCarsData, buildQueryParams } from "./FetchCarsData";
 
-type SearchParams = {
-  paramName: string;
-  paramValue: string | number;
-}[];
+type SearchParams = Record<string, string | number | null>;
 
 const Button = () => {
   const navigate = useNavigate();
@@ -30,59 +27,19 @@ const Button = () => {
   };
 
   const searchParams: SearchParams = useMemo(() => {
-    return [
-      {
-        paramName: "manu",
-        paramValue: urlStringModifier(store.searchParams.manu),
-      },
-      {
-        paramName: "model",
-        paramValue: urlStringModifier(store.searchParams.model),
-      },
-      {
-        paramName: "location",
-        paramValue: urlStringModifier(store.searchParams.location),
-      },
-      {
-        paramName: "custom",
-        paramValue: urlStringModifier(store.searchParams.custom),
-      },
-      {
-        paramName: "yearFrom",
-        paramValue: urlStringModifier(store.searchParams.year.from),
-      },
-      {
-        paramName: "yearTo",
-        paramValue: urlStringModifier(store.searchParams.year.to),
-      },
-      {
-        paramName: "priceFrom",
-        paramValue: urlStringModifier(store.searchParams.price.from),
-      },
-      {
-        paramName: "priceTo",
-        paramValue: urlStringModifier(store.searchParams.price.to),
-      },
-      {
-        paramName: "fuelType",
-        paramValue: urlStringModifier(store.searchParams.fuelType),
-      },
-      {
-        paramName: "page",
-        paramValue: "1",
-      },
-    ];
+    return {
+      manu: urlStringModifier(store.searchParams.manu),
+      model: urlStringModifier(store.searchParams.model),
+      location: urlStringModifier(store.searchParams.location),
+      custom: urlStringModifier(store.searchParams.custom),
+      yearFrom: urlStringModifier(store.searchParams.year.from),
+      yearTo: urlStringModifier(store.searchParams.year.to),
+      priceFrom: urlStringModifier(store.searchParams.price.from),
+      priceTo: urlStringModifier(store.searchParams.price.to),
+      fuelType: urlStringModifier(store.searchParams.fuelType),
+      page: "1",
+    };
   }, [store.searchParams]);
-
-  // this function checks if the searchParam item exists and pushes in the array if it does
-  const routePusher = (
-    routeParams: string[] = [],
-    param: Record<string, string | number>
-  ) => {
-    if (param.paramValue) {
-      routeParams.push(`${param.paramName}=${param.paramValue}`);
-    }
-  };
 
   const lowerYearLimit = store.searchParams.year.from || 0;
   const upperYearLimit = store.searchParams.year.to || 100000;
@@ -90,14 +47,8 @@ const Button = () => {
   const upperPriceLimit = store.searchParams.price.to || 100000;
 
   useEffect(() => {
-    const routeParams: string[] = [];
-
-    searchParams.map((param) => routePusher(routeParams, param));
-
     const fetchCars = async () => {
-      const res = await axios.get(
-        `http://localhost:4000/carsOnSale?${routeParams.join("&")}`
-      );
+      const res = await FetchCarsData(searchParams);
 
       const filteredData = DataFiltering(
         res.data,
@@ -107,14 +58,22 @@ const Button = () => {
         upperPriceLimit
       );
 
-      console.log(filteredData);
       setResCount(filteredData.length);
     };
 
     fetchCars();
-    const urlQueryParams = `iyideba-manqanebi?${routeParams.join("&")}`;
+    const urlQueryParams = `iyideba-manqanebi?${buildQueryParams(
+      searchParams
+    )}`;
     setUrl(urlQueryParams);
-  }, [store.searchParams, searchParams]);
+  }, [
+    store.searchParams,
+    searchParams,
+    lowerPriceLimit,
+    upperPriceLimit,
+    lowerYearLimit,
+    upperYearLimit,
+  ]);
 
   return (
     <div className="col-start-4 row-start-3">

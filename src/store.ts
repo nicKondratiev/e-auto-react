@@ -4,7 +4,7 @@ type SearchParams = {
   manu: string;
   model: string;
   location: string;
-  custom: number;
+  custom: string;
   year: FromTo;
   price: FromTo;
   fuelType: string;
@@ -29,7 +29,7 @@ type Store = {
   addYearTo: NumVoid;
   addPriceFrom: NumVoid;
   addPriceTo: NumVoid;
-  addCustom: NumVoid;
+  addCustom: StringVoid;
 };
 
 const useStore = create<Store>((set) => ({
@@ -37,7 +37,7 @@ const useStore = create<Store>((set) => ({
     manu: "",
     model: "",
     location: "",
-    custom: 0,
+    custom: "",
     year: { from: 0, to: 0 },
     price: { from: 0, to: 0 },
     fuelType: "",

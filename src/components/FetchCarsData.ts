@@ -15,8 +15,8 @@ export const buildQueryParams = (params: QueryParams) => {
 };
 
 // function to fetch car data
-export const FetchCarsData = (queryParams: QueryParams) => {
-  const response = axios.get(
+export const FetchCarsData = async (queryParams: QueryParams) => {
+  const response = await axios.get(
     `http://localhost:4000/carsOnSale?${buildQueryParams(queryParams)}`
   );
 
