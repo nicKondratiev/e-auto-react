@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { FetchCarsData } from "./FetchCarsData";
@@ -13,7 +13,7 @@ export type QueryParams = Record<string, string | number | null>;
 const SearchResults = () => {
   // we get current url's params with this useSearchParams hook
   const [params] = useSearchParams();
-  // const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(Number(params.get("page")) || 1);
 
   // we create this obj to iterate over it in buildQueryParams func
   const queryParams: QueryParams = useMemo(() => {
@@ -54,7 +54,7 @@ const SearchResults = () => {
       {isLoading ? (
         <Loading color="darkOrange" type="spinningBubbles" />
       ) : (
-        <Cars data={filtered} />
+        <Cars data={filtered} page={page} setPage={setPage} />
       )}
     </div>
   );

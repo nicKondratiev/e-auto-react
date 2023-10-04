@@ -15,11 +15,7 @@ type InputType = {
   hanldeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-import useStore from "../../../store";
-
 const FromTo = ({ fromVal, toVal, addFrom, addTo }: FromToProps) => {
-  const store = useStore();
-
   const inputData: InputType[] = [
     {
       name: "from",
@@ -36,8 +32,6 @@ const FromTo = ({ fromVal, toVal, addFrom, addTo }: FromToProps) => {
       hanldeChange: (e) => addTo(Number(e.target.value)),
     },
   ];
-
-  console.log(store.searchParams);
 
   return (
     <div className="h-20 bg-gray-200 text-black">

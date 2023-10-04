@@ -14,8 +14,6 @@ const FuelChild = () => {
     "Hydrogen",
   ];
 
-  console.log(store.searchParams);
-
   return (
     <div className="p-4 text-base text-black">
       <div className="flex flex-wrap gap-[12px]">
