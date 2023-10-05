@@ -5,7 +5,7 @@ import { FetchCarsData } from "./FetchCarsData";
 
 // util function
 import DataFiltering from "./DataFiltering";
-import Cars from "./Cars";
+import Cars from "./pagination/Cars";
 import Loading from "./Loading";
 
 export type QueryParams = Record<string, string | number | null>;

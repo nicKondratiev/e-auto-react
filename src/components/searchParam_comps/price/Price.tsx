@@ -1,4 +1,4 @@
-import DropDown from "../../DropDown";
+import DropDown from "../../dropDown/DropDown";
 import PriceChild from "./PriceChild";
 
 const Price = () => {

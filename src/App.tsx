@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Search from "./components/Search";
+import Search from "./components/SearchComponent";
 // import SearchResults from "./components/SearchResults";
 import { QueryClient, QueryClientProvider } from "react-query";
 import SearchResults from "./components/SearchResults";
