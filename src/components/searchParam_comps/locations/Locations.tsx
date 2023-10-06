@@ -17,6 +17,7 @@ const Locations = () => {
     <DropDown
       header="Location"
       overflow="scroll"
+      canOpen={true}
       Child={
         <Child
           data={locations}

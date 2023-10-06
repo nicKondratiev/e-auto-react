@@ -22,6 +22,7 @@ const Models = () => {
     <DropDown
       header="Models"
       overflow="scroll"
+      canOpen={Boolean(models)}
       Child={
         <Child
           data={models}
