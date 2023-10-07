@@ -34,13 +34,13 @@ const FromTo = ({ fromVal, toVal, addFrom, addTo }: FromToProps) => {
   ];
 
   return (
-    <div className="h-20 bg-gray-200 text-black">
-      <div className="flex h-full items-center gap-5 px-2">
+    <div className="h-20 bg-white text-black">
+      <div className="flex h-full items-center justify-center gap-5 px-2">
         {inputData.map((input, index) => (
           <input
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="input h-3/5 w-1/2 appearance-none
-             rounded-lg px-2 text-base"
+            className="input h-3/5 w-2/5 appearance-none rounded-lg
+             border px-2 text-sm"
             onChange={(e) => input.hanldeChange(e)}
             name={input.name}
             type={input.type}
