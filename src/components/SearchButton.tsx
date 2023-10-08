@@ -76,10 +76,10 @@ const Button = () => {
   ]);
 
   return (
-    <div className="col-start-4 row-start-3">
+    <div className="col-start-4 row-start-2">
       <button
         onClick={() => navigate(url)}
-        className="w-2/3 rounded bg-orange-500 p-1"
+        className="h-[50px] w-[180px] rounded-lg bg-[#FC4900] p-1 text-sm text-white hover:bg-[#FC3900]"
       >
         Search ({resCount})
       </button>
