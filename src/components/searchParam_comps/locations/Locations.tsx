@@ -16,8 +16,8 @@ const Locations = () => {
   return (
     <DropDown
       header="Location"
-      overflow="scroll"
       canOpen={true}
+      item={store.searchParams.location}
       Child={
         <Child
           data={locations}

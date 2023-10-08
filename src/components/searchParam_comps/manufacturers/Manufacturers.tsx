@@ -16,8 +16,8 @@ const Manufacturers = () => {
   return (
     <DropDown
       header="Manufacturer"
-      overflow="scroll"
       canOpen={true}
+      item={store.searchParams.manu}
       Child={
         <Child
           data={manufacturers}

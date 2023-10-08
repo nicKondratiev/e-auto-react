@@ -21,7 +21,7 @@ const Models = () => {
   return (
     <DropDown
       header="Models"
-      overflow="scroll"
+      item={store.searchParams.model}
       canOpen={Boolean(models)}
       Child={
         <Child
