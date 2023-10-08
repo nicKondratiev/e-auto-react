@@ -15,6 +15,17 @@ type InputType = {
   hanldeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
+// if we have both from and to value we want to have "XXXX - XXXX" format
+export const fromToSetter = (from: number, to: number, itemProp: string) => {
+  if (from && to) {
+    itemProp += `${from} - ${to}`;
+  } else if (from || to) {
+    itemProp += from || to;
+  }
+
+  return itemProp;
+};
+
 const FromTo = ({ fromVal, toVal, addFrom, addTo }: FromToProps) => {
   const inputData: InputType[] = [
     {
