@@ -4,6 +4,8 @@ import "./styles.css";
 // useStore from zustand
 import useStore from "../../../store";
 
+import ClearanceButton from "./ClearenceButton";
+
 export default function Clearance() {
   const store = useStore();
 
@@ -18,20 +20,20 @@ export default function Clearance() {
   };
 
   return (
-    <div className="flex w-[180px] items-center rounded-lg border">
-      <div
-        onClick={() => setCustom("1")}
-        className={`clearanceButton rounded-l-lg`}
-      >
-        <p>Customs</p>
-      </div>
-      <div className="h-8 w-[1px] rounded-full bg-gray-200"></div>
-      <div
+    <div className="flex w-[180px] items-center justify-center rounded-lg">
+      <ClearanceButton
+        value="Cleared"
         onClick={() => setCustom("0")}
-        className="clearanceButton rounded-r-lg"
-      >
-        <p>Duty Free</p>
-      </div>
+        selected={store.searchParams.custom === "0"}
+        side="left"
+      />
+      <div className="absolute h-8 w-[1px] rounded-full bg-gray-200"></div>
+      <ClearanceButton
+        value="Duty Free"
+        onClick={() => setCustom("1")}
+        selected={store.searchParams.custom === "1"}
+        side="right"
+      />
     </div>
   );
 }
