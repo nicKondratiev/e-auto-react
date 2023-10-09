@@ -1,12 +1,12 @@
-import useStore from "../store";
+import useStore from "../../store";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import DataFiltering from "./DataFiltering";
-import { FetchCarsData, buildQueryParams } from "./FetchCarsData";
+import DataFiltering from "../DataFiltering";
+import { FetchCarsData, buildQueryParams } from "../FetchCarsData";
 
 type SearchParams = Record<string, string | number | null>;
 
-const Button = () => {
+const SearchButton = () => {
   const navigate = useNavigate();
   const store = useStore();
 
@@ -87,4 +87,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default SearchButton;
