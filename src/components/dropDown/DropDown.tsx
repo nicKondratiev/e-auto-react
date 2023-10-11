@@ -47,13 +47,16 @@ const DropDown = ({ header, Child, item, canOpen }: DropDownProps) => {
 
   return (
     <div ref={dropdownRef} className="relative flex justify-center">
+      {isOpen && (
+        <div className="overlay md:hidden" onClick={closeDropdown}></div>
+      )}
       <div
         onClick={canOpen ? toggleDropdown : () => null} // we have to check data truthiness because we don't want to open models dropdown before we have manu selected
         className={`${
           !canOpen ? "border-none bg-gray-100 text-gray-300" : ""
         } ${
           item ? "border-[0.5px] border-black" : ""
-        } dropdown-outter flex w-[180px] overflow-hidden `}
+        } dropdown-outter flex w-[180px] overflow-hidden`}
       >
         <div className="relative flex h-auto flex-col justify-center">
           <span
@@ -80,7 +83,8 @@ const DropDown = ({ header, Child, item, canOpen }: DropDownProps) => {
       <div
         className={`${
           isOpen ? "absolute" : "hidden"
-        }  left-0 top-16 z-10 flex h-[350px] w-[350px] flex-col overflow-hidden rounded-xl border bg-white`}
+        } left-0 top-16 z-50 flex h-[350px] w-[350px] flex-col overflow-hidden rounded-xl border bg-white`}
+        // }  left-0 top-16 z-10 flex h-[350px] w-[350px] flex-col overflow-hidden rounded-xl border  bg-white`}
       >
         <div className={`grow overflow-y-auto`}>{Child}</div>
         <div className="bottom-0 flex w-full flex-1 items-center justify-center bg-white py-2">

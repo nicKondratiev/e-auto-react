@@ -1,3 +1,5 @@
+import "./styles.css";
+
 // searchParams
 import Manufacturers from "../searchParam_comps/manufacturers/Manufacturers.tsx";
 import Locations from "../searchParam_comps/locations/Locations.tsx";
@@ -10,17 +12,15 @@ import Fuel from "../searchParam_comps/fuel/Fuel.tsx";
 
 const SearchComponent = () => {
   return (
-    <div>
-      <div className="grid h-[170px] grid-cols-4 grid-rows-2 items-center gap-2 rounded-xl bg-white px-2 py-4 xl:w-[800px]">
-        <Manufacturers />
-        <Models />
-        <Locations />
-        <Clearance />
-        <Year />
-        <Price />
-        <Fuel />
-        <SearchButton />
-      </div>
+    <div className="grid h-[170px] grid-cols-4 grid-rows-2 items-center gap-2 rounded-xl bg-white  px-2 py-4 xl:w-[800px]">
+      <Manufacturers />
+      <Models />
+      <Locations />
+      <Clearance />
+      <Year />
+      <Price />
+      <Fuel />
+      <SearchButton />
     </div>
   );
 };

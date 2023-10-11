@@ -27,7 +27,7 @@ export default function Clearance() {
         selected={store.searchParams.custom === "0"}
         side="left"
       />
-      <div className="absolute h-8 w-[1px] rounded-full bg-gray-200"></div>
+      <div className="absolute z-30 h-8 w-[1px] rounded-full bg-gray-200"></div>
       <ClearanceButton
         value="Duty Free"
         onClick={() => setCustom("1")}
