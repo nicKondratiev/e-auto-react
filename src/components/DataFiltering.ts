@@ -7,6 +7,10 @@ export type CarType = {
   custom: number;
   year: number;
   price: number;
+  mileage: number;
+  steering: string;
+  clutch: string;
+  listingType: string;
 };
 
 const DataFiltering = (

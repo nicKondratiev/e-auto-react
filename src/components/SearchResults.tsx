@@ -50,7 +50,7 @@ const SearchResults = () => {
   );
 
   return (
-    <div>
+    <div className="w-[800px]">
       {isLoading ? (
         <Loading color="darkOrange" type="spinningBubbles" />
       ) : (

@@ -8,7 +8,11 @@
       "custom": 1,
       "fuelType": "Petrol",
       "price": 17000,
-      "year": 2019
+      "year": 2019,
+      "mileage": 15000,
+      "steering": "Left",
+      "clutch": "Automatic",
+      "listingType": "VIP"
     },
     {
       "manu": "BMW",
@@ -18,7 +22,11 @@
       "custom": 0,
       "fuelType": "Petrol",
       "price": 19000,
-      "year": 2020
+      "year": 2020,
+      "mileage": 10000,
+      "steering": "Left",
+      "clutch": "Tiptronic",
+      "listingType": "S-VIP"
     },
     {
       "manu": "BMW",
@@ -28,7 +36,11 @@
       "custom": 1,
       "fuelType": "Petrol",
       "price": 25000,
-      "year": 2021
+      "year": 2021,
+      "mileage": 20000,
+      "steering": "Left",
+      "clutch": "Automatic",
+      "listingType": "Regular"
     },
     {
       "manu": "Porsche",
@@ -38,7 +50,11 @@
       "custom": 1,
       "fuelType": "Hybrid",
       "price": 31000,
-      "year": 2022
+      "year": 2022,
+      "mileage": 12000,
+      "steering": "Left",
+      "clutch": "Tiptronic",
+      "listingType": "S-VIP"
     },
     {
       "manu": "Mercedes-Benz",
@@ -48,7 +64,11 @@
       "custom": 0,
       "fuelType": "Petrol",
       "price": 39000,
-      "year": 2023
+      "year": 2023,
+      "mileage": 8000,
+      "steering": "Left",
+      "clutch": "Automatic",
+      "listingType": "Regular"
     },
     {
       "manu": "Porsche",
@@ -58,7 +78,11 @@
       "custom": 1,
       "fuelType": "Hybrid",
       "price": 47000,
-      "year": 2019
+      "year": 2019,
+      "mileage": 25000,
+      "steering": "Left",
+      "clutch": "Tiptronic",
+      "listingType": "S-VIP"
     },
     {
       "manu": "Mercedes-Benz",
@@ -68,7 +92,11 @@
       "custom": 0,
       "fuelType": "Electric",
       "price": 53000,
-      "year": 2020
+      "year": 2020,
+      "mileage": 18000,
+      "steering": "Left",
+      "clutch": "Automatic",
+      "listingType": "Regular"
     },
     {
       "manu": "Porsche",
@@ -78,7 +106,11 @@
       "custom": 1,
       "fuelType": "Hybrid",
       "price": 59000,
-      "year": 2021
+      "year": 2021,
+      "mileage": 22000,
+      "steering": "Left",
+      "clutch": "Tiptronic",
+      "listingType": "VIP"
     },
     {
       "manu": "Mercedes-Benz",
@@ -88,7 +120,11 @@
       "custom": 0,
       "fuelType": "Petrol",
       "price": 67000,
-      "year": 2022
+      "year": 2022,
+      "mileage": 16000,
+      "steering": "Left",
+      "clutch": "Tiptronic",
+      "listingType": "Regular"
     },
     {
       "manu": "Porsche",
@@ -98,7 +134,11 @@
       "custom": 1,
       "fuelType": "Hybrid",
       "price": 73000,
-      "year": 2023
+      "year": 2023,
+      "mileage": 28000,
+      "steering": "Left",
+      "clutch": "Automatic",
+      "listingType": "VIP"
     },
     {
       "manu": "Mercedes-Benz",
@@ -108,17 +148,11 @@
       "custom": 0,
       "fuelType": "Petrol",
       "price": 81000,
-      "year": 2019
-    },
-    {
-      "manu": "Porsche",
-      "model": "Macan",
-      "location": "Poti",
-      "img": "https://static.autox.com/uploads/2022/01/Porsche-Macan-front-left-corner-profile.jpg",
-      "custom": 1,
-      "fuelType": "Hybrid",
-      "price": 88000,
-      "year": 2020
+      "year": 2019,
+      "mileage": 27000,
+      "steering": "Left",
+      "clutch": "Tiptronic",
+      "listingType": "VIP"
     },
     {
       "manu": "Mercedes-Benz",
@@ -128,7 +162,11 @@
       "custom": 0,
       "fuelType": "Petrol",
       "price": 95000,
-      "year": 2021
+      "year": 2021,
+      "mileage": 14000,
+      "steering": "Left",
+      "clutch": "Automatic",
+      "listingType": "S-VIP"
     }
   ]
 }

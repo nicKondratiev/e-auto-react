@@ -87,8 +87,8 @@ const DropDown = ({ header, Child, item, canOpen }: DropDownProps) => {
         className={`${
           isOpen
             ? "fixed bottom-[0px] lg:absolute"
-            : "fixed bottom-[-500px] lg:hidden"
-        } z-50 flex h-2/3 w-full flex-col overflow-hidden rounded-t-xl border bg-white duration-200 ease-in lg:left-0 lg:top-16 lg:h-[350px] lg:w-[350px] lg:rounded-xl lg:duration-0`}
+            : "fixed bottom-[-1000px] lg:hidden"
+        } z-50 flex h-2/3 w-full flex-col overflow-hidden rounded-t-xl border bg-white duration-300 ease-in lg:left-0 lg:top-16 lg:h-[350px] lg:w-[350px] lg:rounded-xl lg:duration-0`}
       >
         <div className={`grow overflow-y-auto`}>{Child}</div>
         <div className="bottom-0 flex w-full items-center justify-center bg-white py-2">
