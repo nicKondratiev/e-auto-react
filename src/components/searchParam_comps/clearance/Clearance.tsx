@@ -20,14 +20,14 @@ export default function Clearance() {
   };
 
   return (
-    <div className="flex w-[180px] items-center justify-center rounded-lg">
+    <div className="flex w-full items-center justify-center rounded-lg lg:w-[180px]">
       <ClearanceButton
         value="Cleared"
         onClick={() => setCustom("0")}
         selected={store.searchParams.custom === "0"}
         side="left"
       />
-      <div className="absolute z-30 h-8 w-[1px] rounded-full bg-gray-200"></div>
+      <div className="absolute z-20 h-8 w-[1px] rounded-full bg-gray-200"></div>
       <ClearanceButton
         value="Duty Free"
         onClick={() => setCustom("1")}

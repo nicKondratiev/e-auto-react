@@ -46,7 +46,10 @@ const DropDown = ({ header, Child, item, canOpen }: DropDownProps) => {
   };
 
   return (
-    <div ref={dropdownRef} className="relative flex justify-center">
+    <div
+      ref={dropdownRef}
+      className="relative flex w-full justify-center lg:w-auto"
+    >
       {isOpen && (
         <div className="overlay md:hidden" onClick={closeDropdown}></div>
       )}
@@ -56,7 +59,7 @@ const DropDown = ({ header, Child, item, canOpen }: DropDownProps) => {
           !canOpen ? "border-none bg-gray-100 text-gray-300" : ""
         } ${
           item ? "border-[0.5px] border-black" : ""
-        } dropdown-outter flex w-[180px] overflow-hidden`}
+        } dropdown-outter flex w-full overflow-hidden lg:w-[180px]`}
       >
         <div className="relative flex h-auto flex-col justify-center">
           <span
@@ -82,12 +85,13 @@ const DropDown = ({ header, Child, item, canOpen }: DropDownProps) => {
 
       <div
         className={`${
-          isOpen ? "absolute" : "hidden"
-        } left-0 top-16 z-50 flex h-[350px] w-[350px] flex-col overflow-hidden rounded-xl border bg-white`}
-        // }  left-0 top-16 z-10 flex h-[350px] w-[350px] flex-col overflow-hidden rounded-xl border  bg-white`}
+          isOpen
+            ? "fixed bottom-[0px] lg:absolute"
+            : "fixed bottom-[-500px] lg:hidden"
+        } z-50 flex h-2/3 w-full flex-col overflow-hidden rounded-t-xl border bg-white duration-200 ease-in lg:left-0 lg:top-16 lg:h-[350px] lg:w-[350px] lg:rounded-xl lg:duration-0`}
       >
         <div className={`grow overflow-y-auto`}>{Child}</div>
-        <div className="bottom-0 flex w-full flex-1 items-center justify-center bg-white py-2">
+        <div className="bottom-0 flex w-full items-center justify-center bg-white py-2">
           <span
             onClick={() => setIsOpen(false)}
             className="w-10/12 cursor-pointer rounded-lg bg-[#272A37] p-2 text-center text-sm text-white"

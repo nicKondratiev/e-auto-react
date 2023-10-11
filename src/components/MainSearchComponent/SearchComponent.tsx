@@ -12,7 +12,7 @@ import Fuel from "../searchParam_comps/fuel/Fuel.tsx";
 
 const SearchComponent = () => {
   return (
-    <div className="grid h-[170px] grid-cols-4 grid-rows-2 items-center gap-2 rounded-xl bg-white  px-2 py-4 xl:w-[800px]">
+    <div className="flex w-full flex-col items-center gap-2 rounded-none bg-white px-2 py-4 lg:grid lg:h-[170px] lg:grid-cols-4  lg:grid-rows-2 lg:rounded-xl xl:w-[800px]">
       <Manufacturers />
       <Models />
       <Locations />
