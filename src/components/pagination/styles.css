@@ -1,0 +1,18 @@
+.active {
+  color: white;
+  background-color: black;
+}
+
+.iitt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height: 40px;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.configs {
+  @apply flex items-center gap-2 text-sm font-normal;
+}
