@@ -1,58 +1,58 @@
 import { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
+// import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import "./styles.css";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-// svgs
+// svgs;
 import engineSvg from "./svgs/engine.svg";
 import clutchSvg from "./svgs/clutch.svg";
 import mileage from "./svgs/mileage.svg";
 import steering from "./svgs/steering.svg";
+
+// pages generator for pagination
+import generatePages from "./generatePages";
 
 // import car data type
 import { CarType } from "../DataFiltering";
 
 type PropTypes = {
   data: CarType[];
-  page: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export default function Cars(props: PropTypes) {
-  const { data, page, setPage } = props;
-  const [currentItems, setCurrentItems] = useState<CarType[]>();
-  const [pageCount, setPageCount] = useState(0);
-  const itemsPerPage = 10;
   const [params] = useSearchParams();
+  const location = useLocation();
+  const { data } = props;
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    setPage(Number(params.get("page")));
+  }, [params, data]);
+
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // how many items we want to see on a single page
+  const pageSize = 10;
+
+  const currentItems = data.slice((page - 1) * 10, page * pageSize);
 
   // this count variable equals to loaded imgs quantity
   let count = 0;
 
-  useEffect(() => {
-    const newOffset = (page - 1) * itemsPerPage;
-    setCurrentItems(data?.slice(newOffset, newOffset + itemsPerPage));
-    setPageCount(Math.ceil(data?.length / itemsPerPage));
-  }, [page, data, itemsPerPage]);
-
-  useEffect(() => {
-    const newPage = Number(params.get("page")) || 1;
-    if (newPage !== page) {
-      setPage(newPage);
-    }
-    setPage(newPage);
-  }, [params, page, setPage]);
-
-  const handlePageClick = (event: { selected: number }) => {
-    const newPage = event.selected + 1 || Number(params.get("page"));
-    params.set("page", newPage.toString());
-    const newURL = `${location.pathname}?${params.toString()}`;
-    window.history.replaceState(null, "", newURL);
-    setPage(newPage);
-    // set is loaded to false, whenever we change the page
-    setIsLoaded(false);
+  const handlePageClick = async (val: number) => {
+    setPage(val);
+    const searchParams = new URLSearchParams(location.search);
+    await searchParams.set("page", val.toString());
+    const newURL = `${location.pathname}?${searchParams.toString()}`;
+    window.history.pushState(null, "", newURL);
   };
+
+  // we need this pages array in the pagination section
+  const pages = generatePages(page, 3);
 
   return (
     <>
@@ -136,22 +136,33 @@ export default function Cars(props: PropTypes) {
             </div>
           ))}
         </div>
-        <div className="flex h-auto w-full justify-center rounded-lg bg-white py-5">
-          <ReactPaginate
-            activeClassName="item active"
-            pageClassName="iitt"
-            className="flex gap-1"
-            breakLabel="..."
-            // nextLabel=">"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={7}
-            pageCount={pageCount}
-            previousLabel={false}
-            nextLabel={false}
-            // previousLabel="<"
-            renderOnZeroPageCount={null}
-            initialPage={page - 1}
-          />
+
+        <div className="flex h-auto w-full items-center justify-center gap-1 rounded-lg bg-white py-5">
+          <span
+            className="paginate-item"
+            onClick={() => handlePageClick(page - 1)}
+          >
+            <ArrowBackIosIcon fontSize="small" />
+          </span>
+          <ul className="flex cursor-pointer gap-1">
+            {pages.map((i) => (
+              <span
+                key={i}
+                className={`${
+                  i === page ? "bg-black text-white" : ""
+                } paginate-item`}
+                onClick={() => handlePageClick(i)}
+              >
+                {i}
+              </span>
+            ))}
+          </ul>
+          <span
+            className="paginate-item"
+            onClick={() => handlePageClick(page + 1)}
+          >
+            <ArrowForwardIosIcon fontSize="small" />
+          </span>
         </div>
       </div>
     </>
