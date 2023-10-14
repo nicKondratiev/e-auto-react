@@ -4,7 +4,7 @@
 }
 
 .paginate-item {
-  @apply w-fit rounded-lg px-3 py-1 font-semibold text-black duration-300 hover:bg-gray-300;
+  @apply cursor-pointer w-fit rounded-lg px-2.5 py-1 font-semibold text-black duration-300 hover:bg-gray-300;
 }
 
 .configs {

@@ -29,6 +29,9 @@ const SearchResults = () => {
     ["searchResults", queryParams],
     () => {
       return FetchCarsData(queryParams);
+    },
+    {
+      refetchOnWindowFocus: false,
     }
   );
 

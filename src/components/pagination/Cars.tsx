@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -27,36 +27,56 @@ export default function Cars(props: PropTypes) {
   const [params] = useSearchParams();
   const location = useLocation();
   const { data } = props;
-  const [page, setPage] = useState(1);
+
+  // set the initial page based on url param
+  const initialPage = Number(params.get("page")) || 1;
+  const [page, setPage] = useState(initialPage);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setPage(Number(params.get("page")));
   }, [params, data]);
 
-  const [isLoaded, setIsLoaded] = useState(false);
-
   // how many items we want to see on a single page
   const pageSize = 10;
-
-  const currentItems = data.slice((page - 1) * 10, page * pageSize);
+  const currentItems = data.slice((page - 1) * pageSize, page * pageSize);
 
   // this count variable equals to loaded imgs quantity
   let count = 0;
 
   const handlePageClick = async (val: number) => {
     setPage(val);
+    setIsLoaded(false);
     const searchParams = new URLSearchParams(location.search);
-    await searchParams.set("page", val.toString());
+    searchParams.set("page", val.toString());
     const newURL = `${location.pathname}?${searchParams.toString()}`;
     window.history.pushState(null, "", newURL);
   };
 
+  // Handle browser back button
+  window.onpopstate = function () {
+    const searchParams = new URLSearchParams(location.search);
+    const pageParam = searchParams.get("page");
+    const pageNum = pageParam ? parseInt(pageParam) : 1;
+    setPage(pageNum);
+  };
+
   // we need this pages array in the pagination section
-  const pages = generatePages(page, 3);
+  const pages = generatePages(page, 2);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = 0; // scroll to the top whenever the page changes
+    }
+  }, [page]);
 
   return (
     <>
-      <div className="relative flex h-full w-full flex-col justify-between gap-1 overflow-scroll rounded-lg bg-gray-200 px-4 py-2 text-black lg:h-5/6">
+      <div
+        ref={containerRef}
+        className="relative flex h-full w-full flex-col justify-between gap-1 overflow-scroll rounded-lg bg-gray-200 px-4 py-2 text-black lg:h-5/6"
+      >
         <div>
           {currentItems?.map((car: CarType, index: number) => (
             <div className="py-2" key={index}>
@@ -66,12 +86,21 @@ export default function Cars(props: PropTypes) {
                     "h-[250px] w-full overflow-hidden rounded-lg bg-gray-400 lg:h-[180px] lg:w-[240px]"
                   }
                 >
+                  {!isLoaded && (
+                    <div
+                      style={{
+                        height: "250px",
+                        width: "100%",
+                        backgroundColor: "#ddd",
+                      }}
+                    />
+                  )}
                   <img
                     src={car.img}
                     className={`h-[250px] w-full bg-center bg-no-repeat object-cover lg:h-[180px] lg:w-[240px] ${
                       isLoaded ? "relative" : "hidden"
                     }`}
-                    // if loaded imgs count equals to the length of currentItmes on page it means all the pages have been loaded, so we can show them
+                    // if loaded imgs count equals to the length of currentItems on page it means all the pages have been loaded, so we can show them
                     onLoad={() => {
                       count += 1;
                       if (count === currentItems.length) {
@@ -140,7 +169,7 @@ export default function Cars(props: PropTypes) {
         <div className="flex h-auto w-full items-center justify-center gap-1 rounded-lg bg-white py-5">
           <span
             className="paginate-item"
-            onClick={() => handlePageClick(page - 1)}
+            onClick={page === 1 ? () => null : () => handlePageClick(page - 1)}
           >
             <ArrowBackIosIcon fontSize="small" />
           </span>
@@ -151,7 +180,7 @@ export default function Cars(props: PropTypes) {
                 className={`${
                   i === page ? "bg-black text-white" : ""
                 } paginate-item`}
-                onClick={() => handlePageClick(i)}
+                onClick={page === i ? () => null : () => handlePageClick(i)}
               >
                 {i}
               </span>
