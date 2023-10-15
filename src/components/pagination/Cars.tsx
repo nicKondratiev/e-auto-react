@@ -17,7 +17,7 @@ import steering from "./svgs/steering.svg";
 import generatePages from "./generatePages";
 
 // import car data type
-import { CarType } from "../DataFiltering";
+import { CarType } from "../../utils/DataFiltering";
 
 type PropTypes = {
   data: CarType[];

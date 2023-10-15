@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { FetchCarsData } from "./FetchCarsData";
+import { FetchCarsData } from "../../utils/FetchCarsData";
 
 // util function
-import DataFiltering from "./DataFiltering";
-import Cars from "./pagination/Cars";
-import Loading from "./Loading";
+import DataFiltering from "../../utils/DataFiltering";
+import Cars from "../pagination/Cars";
+import Loading from "../feedback/Loading";
 
 export type QueryParams = Record<string, string | number | null>;
 

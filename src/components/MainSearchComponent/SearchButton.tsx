@@ -1,8 +1,8 @@
 import useStore from "../../store";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import DataFiltering from "../DataFiltering";
-import { FetchCarsData, buildQueryParams } from "../FetchCarsData";
+import DataFiltering from "../../utils/DataFiltering";
+import { FetchCarsData, buildQueryParams } from "../../utils/FetchCarsData";
 
 type SearchParams = Record<string, string | number | null>;
 

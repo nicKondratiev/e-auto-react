@@ -3,10 +3,10 @@ import SearchComponent from "./components/MainSearchComponent/SearchComponent";
 
 // import SearchResults from "./components/SearchResults";
 import { QueryClient, QueryClientProvider } from "react-query";
-import SearchResults from "./components/SearchResults";
+import SearchResults from "./components/SearchResults/SearchResults";
 import { createContext } from "react";
 import useStore from "./store";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./components/feedback/ErrorPage";
 
 const queryClient = new QueryClient();
 export const StoreContext = createContext({});

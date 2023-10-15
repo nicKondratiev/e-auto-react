@@ -1,5 +1,5 @@
 // reusables
-import Child from "../../Child";
+import Child from "../../dropDown/Child";
 import DropDown from "../../dropDown/DropDown";
 
 // json data

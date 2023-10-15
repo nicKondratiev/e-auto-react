@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // query params type imported form SearchResults.tsx
-import { QueryParams } from "./SearchResults";
+import { QueryParams } from "../components/SearchResults/SearchResults";
 
 // function to build query parameters
 export const buildQueryParams = (params: QueryParams) => {
