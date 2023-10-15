@@ -1,27 +1,29 @@
-# React + TypeScript + Vite
+# e-auto.ge 🚙
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I've always wanted to develop a filtering system similar to the one used by myauto.ge. Throughout this project, my primary focus was on data filtering, efficient routing, effective state management, maintaining a clean architecture, and crafting reusable code.
 
-Currently, two official plugins are available:
+![App Screenshot](./pngs/readme_first.png)
+![App Screenshot](./pngs/searhResults.png)
+![App Screenshot](./pngs/url.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+**React**, **Typescript**, **Zustand**, **TailwindCSS**, **React-router-dom**, **react-query**.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How to run on your local machine
 
-- Configure the top-level `parserOptions` property like this:
+After cloning project don't forget to install all the dependencies with:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```javascript
+    npm run install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+and then run this to launch sever:
+
+```javascript
+    npm run start
+```
+
+This script will launch the vite server and json-server in parallel.
+
+## Thank you for checking out my project. 🙂
