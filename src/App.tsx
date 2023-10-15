@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import SearchResults from "./components/SearchResults";
 import { createContext } from "react";
 import useStore from "./store";
+import ErrorPage from "./components/ErrorPage";
 
 const queryClient = new QueryClient();
 export const StoreContext = createContext({});
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<SearchComponent />} />
             <Route path={`/iyideba-manqanebi`} element={<SearchResults />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </div>
       </QueryClientProvider>
