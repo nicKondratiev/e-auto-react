@@ -80,7 +80,7 @@ export default function Cars(props: PropTypes) {
         <div>
           {currentItems?.map((car: CarType, index: number) => (
             <div className="py-2" key={index}>
-              <div className="flex h-full flex-col items-start gap-5 rounded-lg bg-white p-4 lg:flex-row">
+              <div className="flex h-full flex-col items-start gap-5 rounded-lg bg-white p-4 md:flex-row">
                 <div
                   className={
                     "h-[250px] w-full overflow-hidden rounded-lg bg-gray-400 lg:h-[180px] lg:w-[240px]"
@@ -117,7 +117,7 @@ export default function Cars(props: PropTypes) {
                     </h1>
                     <h1 className="text-gray-400">{car.year}</h1>
                   </div>
-                  <div className="grid h-20 w-80 grid-cols-2 grid-rows-2 text-gray-700">
+                  <div className="grid h-20 grid-cols-2 grid-rows-2 text-gray-700 lg:w-80">
                     <div className="configs">
                       <img src={engineSvg} />
                       <p>{car.fuelType}</p>
@@ -150,7 +150,7 @@ export default function Cars(props: PropTypes) {
                   </div>
                 </div>
 
-                <div className="flex h-full w-full flex-col items-start gap-2 lg:w-1/5 lg:items-end lg:gap-10">
+                <div className="flex h-full w-full flex-col items-start gap-2 md:items-end lg:w-1/5 lg:items-end lg:gap-10">
                   <div className="flex gap-8 text-xs">
                     <p>{car.location}</p>
                     <p className=" text-green-500">
