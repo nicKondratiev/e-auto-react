@@ -1,6 +1,6 @@
 # e-auto.ge 🚙
 
-I've always wanted to develop a filtering system similar to the one used by myauto.ge. Throughout this project, my primary focus was on data filtering, efficient routing, effective state management, maintaining a clean architecture, and crafting reusable code.
+I've always wanted to develop a filtering system similar to the one used by myauto.ge. Throughout this project, my primary focus was on data filtering, efficient routing & pagination, effective state management, maintaining a clean architecture, and crafting reusable code.
 
 ![App Screenshot](./pngs/readme_first.png)
 ![App Screenshot](./pngs/searhResults.png)
