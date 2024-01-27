@@ -1,4 +1,4 @@
-# e-auto.ge 🚙
+# e-auto.ge searching/data filtering system 🚙
 
 I've always wanted to develop a filtering system similar to the one used by myauto.ge. Throughout this project, my primary focus was on data filtering, efficient routing & pagination, effective state management, maintaining a clean architecture, and crafting reusable code.
 
